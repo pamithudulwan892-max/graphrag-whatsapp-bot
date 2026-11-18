@@ -10,7 +10,7 @@ I built this to learn how retrieval-augmented generation (RAG) works in a realis
 - **Knowledge graph.** An LLM extracts entities (products, prices, warranty plans, branches, opening hours, people) and relationships between them. Entities with the same name from different documents are merged, so facts in different files get connected.
 - **Hybrid retrieval.** Each question goes through three searches: dense vector search (BGE embeddings), BM25 keyword search, and a graph walk from the entities named in the question. The results are merged with Reciprocal Rank Fusion and re-ranked with a cross-encoder, whose score is blended with the fused rank.
 - **Grounded answers.** The LLM only sees the numbered sources and graph facts, has to cite them, and returns structured JSON that says whether the question was answerable. Unanswerable questions are logged for the company to fill in.
-- **WhatsApp.** Works with the Twilio WhatsApp sandbox or the official Meta WhatsApp Cloud API. Webhook signatures are verified, duplicate deliveries are ignored, replies are sent in the background, and each phone number has its own conversation memory.
+- **WhatsApp.** Works with the official Meta WhatsApp Cloud API (used by the live demo) or the Twilio WhatsApp sandbox. Webhook signatures are verified, duplicate deliveries are ignored, replies are sent in the background, and each phone number has its own conversation memory.
 - **Human handover.** If a customer asks for a person, the bot stops replying and the conversation shows up in the dashboard, where an agent can reply and later hand it back.
 - **Admin dashboard.** Manage documents, explore the knowledge graph, test-chat with a view of exactly which chunks and graph facts were used, read conversation logs, review unanswered questions, and see evaluation results.
 - **Evaluation.** 30 test questions (single-hop, multi-hop and unanswerable) comparing vector-only RAG, hybrid search and GraphRAG. GraphRAG answered 96% correctly vs 92% for vector-only, with the gain on multi-hop questions.
@@ -154,19 +154,22 @@ cd backend && python -m pytest -q
 
 **Claude (optional, paid).** Create a key at [console.anthropic.com](https://console.anthropic.com) under *Settings, API Keys*, add a few dollars of credit, and set `ANTHROPIC_API_KEY` (and `LLM_PROVIDER=anthropic` if both keys are set).
 
-**Twilio WhatsApp sandbox (quickest for testing).**
+**Twilio WhatsApp sandbox (quickest for testing, where available).** Twilio's free trial is not offered in every country (it isn't in Sri Lanka), which is why the live demo uses Meta below.
 1. Create a free account at [twilio.com](https://www.twilio.com) and open *Messaging, Try it out, Send a WhatsApp message*.
 2. From your phone, send the join code shown there to the sandbox number.
 3. Copy the Account SID and Auth Token into `.env` (`TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`).
 4. In the sandbox settings, set *When a message comes in* to `https://<your-public-url>/webhooks/twilio` (method POST).
 5. Set `PUBLIC_BASE_URL` to the same public URL and `WHATSAPP_DRY_RUN=false`.
 
-**Meta WhatsApp Cloud API (production).**
-1. At [developers.facebook.com](https://developers.facebook.com) create an app of type *Business* and add the *WhatsApp* product.
-2. Under *WhatsApp, API Setup*, copy the temporary access token and the phone number ID into `META_ACCESS_TOKEN` and `META_PHONE_NUMBER_ID`, and add your own number as a test recipient.
-3. Copy the app secret from *App settings, Basic* into `META_APP_SECRET`, and choose any string for `META_VERIFY_TOKEN`.
-4. Under *WhatsApp, Configuration*, set the callback URL to `https://<your-public-url>/webhooks/meta`, enter the same verify token, and subscribe to the `messages` field.
-5. Set `WHATSAPP_PROVIDER=meta` and `WHATSAPP_DRY_RUN=false`.
+**Meta WhatsApp Cloud API (free test number; what the live demo uses).**
+1. At [developers.facebook.com](https://developers.facebook.com) register as a developer and create an app with the *Connect with customers through WhatsApp* use case. It needs a free business portfolio.
+2. In *Step 1. Try it out*, claim the free test number, add your own WhatsApp number as a recipient (Meta sends you a code), and click *Generate token*. Put the token and the phone number ID into `META_ACCESS_TOKEN` and `META_PHONE_NUMBER_ID`.
+3. Copy the app secret from *App settings, Basic* into `META_APP_SECRET`, and choose any random string for `META_VERIFY_TOKEN`. Set `WHATSAPP_PROVIDER=meta`, `WHATSAPP_DRY_RUN=false` and `META_GRAPH_VERSION` to the version Meta shows (for example `v25.0`).
+4. In *Step 2. Production setup, Configure Webhooks*, set the callback URL to `https://<your-public-url>/webhooks/meta`, enter the same verify token, click *Verify and save*, and switch on the `messages` field.
+5. Add a privacy policy URL (`https://<your-public-url>/privacy` works) under *App settings, Basic* and **publish** the app. Unpublished apps only receive Meta's test events, not real messages.
+6. If messages still don't arrive, open the dashboard's *Outbox* page and click *Connect* with your WhatsApp Business Account ID ("Messaging account ID" on the API setup page). This subscribes the app to the account, a step Meta's dashboard didn't do for me.
+
+The token from *Generate token* expires after about 24 hours. For a bot that keeps working, create a permanent token: in Meta Business settings, add a *System user*, give it the app and the WhatsApp account, and generate a token with the `whatsapp_business_messaging` and `whatsapp_business_management` permissions.
 
 For local testing, `ngrok http 8000` gives you a public HTTPS URL.
 
