@@ -1,5 +1,7 @@
 # GraphRAG WhatsApp Support Bot
 
+**Try it:** https://graphrag-whatsapp-bot.onrender.com/try (no login; the free server may take a minute to wake up)
+
 A customer-support chatbot that learns from a company's own documents and answers customers on WhatsApp. A company uploads its documents (PDF, Word, text files or web pages) in an admin dashboard. The bot splits them into chunks, indexes them for search, and builds a knowledge graph of the products, prices, branches, people and policies in them. When a customer sends a WhatsApp message, the bot finds the relevant facts, writes a short answer, and says which document the answer came from. If the answer is not in the documents, it says so and offers to pass the chat to a human instead of making something up.
 
 I built this to learn how retrieval-augmented generation (RAG) works in a realistic setting, and to test whether adding a knowledge graph (GraphRAG) actually helps compared with plain vector search. The demo uses documents I wrote for a fictional Sri Lankan electronics retailer, Nilaveli Electronics.

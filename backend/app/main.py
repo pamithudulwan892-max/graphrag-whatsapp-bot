@@ -5,6 +5,7 @@ import logging
 import re
 import shutil
 import threading
+import time
 from contextlib import asynccontextmanager
 from pathlib import Path
 
@@ -19,7 +20,7 @@ from . import whatsapp
 from .config import ROOT_DIR, get_settings
 from .ingestion.parsers import SUPPORTED, Section, fetch_url, parse_file, parse_markdown
 from .retrieval.hybrid import MODES
-from .services import Services, answer_to_dict
+from .services import RateLimiter, Services, answer_to_dict
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 log = logging.getLogger("app")
@@ -244,6 +245,83 @@ def chat(body: ChatIn, svc: Services = Depends(get_services)):
     if body.mode not in MODES:
         raise HTTPException(400, f"mode must be one of {MODES}")
     return svc.handle_message(body.phone, body.message, channel="test", mode=body.mode)
+
+
+# --- Public demo (no login) --------------------------------------------------
+# Lets visitors try the bot from the /try page. Guarded by a per-visitor rate limit
+# and a daily cap, so a free LLM quota cannot be used up by one person or a bot.
+
+class PublicDemoGuard:
+    def __init__(self):
+        self.lock = threading.Lock()
+        self.day = ""
+        self.count = 0
+        self.per_ip = RateLimiter(get_settings().public_rate_per_minute)
+
+    def allow(self, ip: str) -> str | None:
+        """Return None if allowed, else a reason."""
+        if not self.per_ip.allow(ip):
+            return "Too many messages in a minute. Please wait a little and try again."
+        with self.lock:
+            today = time.strftime("%Y-%m-%d")
+            if today != self.day:
+                self.day, self.count = today, 0
+            if self.count >= get_settings().public_daily_limit:
+                return "The demo has reached today's free usage limit. Please try again tomorrow."
+            self.count += 1
+        return None
+
+
+public_guard: PublicDemoGuard | None = None
+
+
+class PublicChatIn(BaseModel):
+    message: str = Field(min_length=1, max_length=500)
+    session: str = Field(pattern=r"^[A-Za-z0-9_-]{8,40}$")
+
+
+def _client_ip(request: Request) -> str:
+    fwd = request.headers.get("x-forwarded-for", "")
+    return fwd.split(",")[0].strip() or (request.client.host if request.client else "unknown")
+
+
+@app.get("/api/public/info")
+def public_info(svc: Services = Depends(get_services)):
+    s = get_settings()
+    return {
+        "enabled": s.public_demo,
+        "company": s.company_name,
+        "documents": [d["title"] for d in svc.db.list_documents() if d["status"] == "ready"],
+        "graph": {"nodes": svc.graph.g.number_of_nodes(), "edges": svc.graph.g.number_of_edges()},
+        "llm": svc.llm.model,
+    }
+
+
+@app.post("/api/public/chat")
+def public_chat(body: PublicChatIn, request: Request, svc: Services = Depends(get_services)):
+    global public_guard
+    if not get_settings().public_demo:
+        raise HTTPException(403, "The public demo is turned off")
+    if public_guard is None:
+        public_guard = PublicDemoGuard()
+    reason = public_guard.allow(_client_ip(request))
+    if reason:
+        raise HTTPException(429, reason)
+    out = svc.handle_message(f"web-{body.session}", body.message, channel="web")
+    d = out.get("debug") or {}
+    # Share how the answer was found, but only the parts that help explain it.
+    return {
+        "reply": out.get("reply"),
+        "answerable": d.get("answerable"),
+        "kind": d.get("kind"),
+        "entities": [s["name"] for s in d.get("seeds", [])][:6],
+        "facts": d.get("facts", [])[:6],
+        "sources": [
+            {"n": c["n"], "title": c["title"], "page": c.get("page"), "snippet": c["snippet"]}
+            for c in d.get("citations", [])
+        ],
+        "timings": d.get("timings"),
+    }
 
 
 class AskIn(BaseModel):

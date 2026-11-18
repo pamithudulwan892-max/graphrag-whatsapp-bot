@@ -109,3 +109,26 @@ def test_signature_helpers():
     assert verify_twilio("tok", "https://x.test/webhooks/twilio", params, sig)
     assert not verify_twilio("tok", "https://x.test/webhooks/twilio", {**params, "Body": "tampered"}, sig)
     assert parse_meta({"entry": [{"changes": [{"value": {"statuses": [{"id": "x"}]}}]}]}) == []
+
+
+def test_public_demo_works_without_login(client):
+    info = client.get("/api/public/info").json()
+    assert info["enabled"] and info["documents"] == ["Policies"]
+    r = client.post("/api/public/chat", json={"message": "Where is the Galle Branch?", "session": "abcdefgh12"})
+    assert r.status_code == 200
+    body = r.json()
+    assert "Wakwella" in body["reply"] and body["sources"][0]["title"] == "Policies"
+    # Public visitors show up in the dashboard's conversation list.
+    assert any(c["phone"] == "web-abcdefgh12" for c in client.get("/api/conversations", headers=ADMIN).json())
+
+
+def test_public_demo_limits(client, monkeypatch):
+    import app.main as main
+    from app.config import get_settings
+
+    monkeypatch.setattr(get_settings(), "public_daily_limit", 2)
+    main.public_guard = None
+    ok = [client.post("/api/public/chat", json={"message": "hello", "session": f"sess{i:06d}"}).status_code for i in range(3)]
+    assert ok == [200, 200, 429]
+    assert client.post("/api/public/chat", json={"message": "hi", "session": "bad session!"}).status_code == 422
+    main.public_guard = None

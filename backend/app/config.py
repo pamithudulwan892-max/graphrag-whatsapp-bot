@@ -64,6 +64,11 @@ class Settings(BaseSettings):
     meta_graph_version: str = "v25.0"
     rate_limit_per_minute: int = 12
 
+    # Public demo page (/try): anyone can chat, within these limits
+    public_demo: bool = True
+    public_rate_per_minute: int = 6
+    public_daily_limit: int = 150
+
     @property
     def active_provider(self) -> str | None:
         if self.llm_offline:

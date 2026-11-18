@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { NavLink, Navigate, Route, Routes } from "react-router-dom";
+import { NavLink, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { ApiError, api, getKey, setKey, type Status } from "./api";
 import Overview from "./pages/Overview";
 import Documents from "./pages/Documents";
@@ -9,6 +9,7 @@ import Conversations from "./pages/Conversations";
 import Unanswered from "./pages/Unanswered";
 import Outbox from "./pages/Outbox";
 import Evaluation from "./pages/Evaluation";
+import PublicDemo from "./pages/PublicDemo";
 
 function Login({ onDone }: { onDone: () => void }) {
   const [value, setValue] = useState("");
@@ -33,11 +34,18 @@ function Login({ onDone }: { onDone: () => void }) {
         {error && <div className="error">{error}</div>}
         <button className="primary" type="submit" disabled={!value.trim()}>Sign in</button>
       </form>
+      <p className="small muted" style={{ marginTop: 14 }}>Just visiting? <a href="/try">Try the bot without signing in</a>.</p>
     </div>
   );
 }
 
 export default function App() {
+  // The public demo needs no login.
+  if (useLocation().pathname.startsWith("/try")) return <PublicDemo />;
+  return <AdminApp />;
+}
+
+function AdminApp() {
   const [authed, setAuthed] = useState<boolean | null>(null);
   const [status, setStatus] = useState<Status | null>(null);
 
