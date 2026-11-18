@@ -84,6 +84,15 @@ class Services:
         history = history or []
         standalone = self.answerer.standalone(question, history)
         res = self.retriever.retrieve(standalone, mode=mode)
+        if standalone != question:
+            # Follow-ups: the rewritten question can bury the topic under the entity name
+            # ("Can I pay for the AirCool 12000 in instalments?"), so also search with the
+            # customer's own words and keep their best two chunks.
+            own = self.retriever.retrieve(question, mode=mode)
+            seen = {c.id for c in res.chunks}
+            extra = [c for c in own.chunks if c.id not in seen][:2]
+            if extra:
+                res.chunks = res.chunks[: len(res.chunks) - len(extra)] + extra
         ans = self.answerer.answer(standalone, res, history)
         ans.standalone_question = standalone
         return {"answer": ans, "retrieval": res}
