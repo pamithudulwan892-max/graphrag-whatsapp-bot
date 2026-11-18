@@ -61,8 +61,8 @@ def load_qa(path: Path) -> list[dict]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
-def build_services(offline: bool, data_dir: Path):
-    if data_dir.exists():
+def build_services(offline: bool, data_dir: Path, reuse: bool = False):
+    if data_dir.exists() and not reuse:
         shutil.rmtree(data_dir)
     os.environ["DATA_DIR"] = str(data_dir)
     os.environ["SEED_SAMPLE_DOCS"] = "false"
@@ -75,7 +75,12 @@ def build_services(offline: bool, data_dir: Path):
     get_settings.cache_clear()
     svc = Services(get_settings())
     t0 = time.perf_counter()
+    if reuse and svc.db.list_documents():
+        print(f"  reusing index in {data_dir}")
+        return svc
     for p in sorted((ROOT / "sample_data").iterdir()):
+        if p.is_dir():
+            continue
         r = _ingest_file(svc, p.name, p.read_bytes())
         print(f"  ingested {p.name}: {r}")
     print(f"  index built in {time.perf_counter() - t0:.1f}s, graph: {svc.graph.stats()['nodes']} nodes / {svc.graph.stats()['edges']} edges")
@@ -198,6 +203,8 @@ def main():
     ap.add_argument("--modes", default="vector,hybrid,graphrag")
     ap.add_argument("--tag", default="", help="suffix for the results file name")
     ap.add_argument("--judge-modes", default="vector,graphrag", help="modes scored by the LLM judge (saves free-tier quota)")
+    ap.add_argument("--reuse-index", action="store_true", help="reuse eval/.data instead of rebuilding (no extraction calls)")
+    ap.add_argument("--retrieval-only", action="store_true", help="only measure retrieval (no answer or judge calls)")
     ap.add_argument("--k", type=int, default=None, help="chunks retrieved per question (default: TOP_K setting)")
     args = ap.parse_args()
 
@@ -205,7 +212,9 @@ def main():
     if args.k:
         os.environ["TOP_K"] = str(args.k)
     print(f"Building index ({'offline' if args.offline else 'LLM if key set'})...")
-    svc = build_services(args.offline, ROOT / "eval" / ".data")
+    if args.retrieval_only:
+        os.environ["LLM_OFFLINE"] = "true"
+    svc = build_services(args.offline or args.retrieval_only, ROOT / "eval" / ".data", args.reuse_index)
     report = {
         "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         "n_questions": len(qa),

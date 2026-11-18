@@ -54,10 +54,7 @@ class LLM:
             text = self._gemini(system, user, schema, effort or self.settings.llm_effort, max_tokens)
         else:
             text = self._claude(system, user, schema, effort or self.settings.llm_effort, max_tokens)
-        try:
-            return json.loads(text)
-        except json.JSONDecodeError as e:
-            raise LLMError(f"Model returned invalid JSON: {text[:200]}") from e
+        return parse_json(text)
 
     def _count(self, inp: int, out: int):
         with self._lock:
@@ -72,8 +69,12 @@ class LLM:
             gen["responseJsonSchema"] = schema
         else:
             gen["responseSchema"] = _openapi_schema(schema)
-        if effort == "low" and "flash" in self.model:
-            gen["thinkingConfig"] = {"thinkingBudget": 0}  # faster replies for chat
+        if effort == "low":
+            # Less thinking = faster chat replies. Gemini 2.5 uses a token budget, Gemini 3+ a level.
+            if self.model.startswith("gemini-2.5-flash"):
+                gen["thinkingConfig"] = {"thinkingBudget": 0}
+            elif self.model.startswith("gemini-3"):
+                gen["thinkingConfig"] = {"thinkingLevel": "low"}
         body = {
             "systemInstruction": {"parts": [{"text": system}]},
             "contents": [{"role": "user", "parts": [{"text": user}]}],
@@ -146,6 +147,23 @@ class LLM:
         if resp.stop_reason == "max_tokens":
             raise LLMError("The model ran out of output tokens")
         return next((b.text for b in resp.content if b.type == "text"), "")
+
+
+def parse_json(text: str) -> dict:
+    """Parse model output as JSON, tolerating ```json fences that some open models add."""
+    t = text.strip()
+    if t.startswith("```"):
+        t = re.sub(r"^```[a-zA-Z]*\s*|\s*```$", "", t)
+    try:
+        return json.loads(t)
+    except json.JSONDecodeError:
+        start, end = t.find("{"), t.rfind("}")
+        if start != -1 and end > start:
+            try:
+                return json.loads(t[start : end + 1])
+            except json.JSONDecodeError:
+                pass
+    raise LLMError(f"Model returned invalid JSON: {text[:200]}")
 
 
 def _openapi_schema(schema: dict) -> dict:

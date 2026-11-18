@@ -2,3 +2,5 @@
 *.pdf binary
 *.docx binary
 *.png binary
+*.db binary
+*.npy binary

@@ -13,3 +13,4 @@ dashboard/dist/
 *.log
 .vercel
 eval/.last_run.log
+data_uitest/

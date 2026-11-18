@@ -3,10 +3,8 @@
 Modes (used by the evaluation to compare approaches):
 - "vector":   plain dense retrieval, the classic RAG baseline.
 - "hybrid":   vector + BM25 fused with Reciprocal Rank Fusion, then cross-encoder re-ranking.
-- "graphrag": hybrid + graph traversal. Graph chunks join the fusion, graph facts go to
-              the LLM, and a couple of "bridge" chunks found only through the graph are
-              kept even if the re-ranker scores them low (multi-hop evidence often looks
-              unrelated to the question on its own).
+- "graphrag": hybrid + graph traversal. Chunks behind the best graph paths join the fusion
+              as a third ranked list, and the graph facts themselves go to the LLM.
 """
 
 import logging
@@ -142,33 +140,30 @@ class HybridRetriever:
         fused = rrf(lists, weights)
         candidates = sorted(fused, key=lambda c: -fused[c])[: self.settings.rerank_candidates]
 
-        # Cross-encoder re-ranking of the fused candidates.
+        # Re-ranking: blend the cross-encoder's relevance with the fused rank, so one weak
+        # re-ranker score cannot throw away a chunk that every retriever agreed on.
         t3 = time.perf_counter()
-        rerank_scores = {}
+        rerank_scores: dict[str, float] = {}
+        final: dict[str, float] = {}
         if self.reranker and self.settings.use_reranker and candidates:
             # Cross-encoder cost grows with length; the first 600 characters carry the topic.
             texts = [self.chunks[c]["text"][:600] for c in candidates]
             for c, s in zip(candidates, self.reranker.score(question, texts)):
                 rerank_scores[c] = s
-            ordered = sorted(candidates, key=lambda c: -rerank_scores[c])
+            top_fused = max(fused[c] for c in candidates)
+            w = self.settings.rerank_weight
+            for c in candidates:
+                final[c] = w * sigmoid(rerank_scores[c]) + (1 - w) * fused[c] / top_fused
         else:
-            ordered = candidates
+            final = {c: fused[c] for c in candidates}
+        ordered = sorted(candidates, key=lambda c: -final[c])
         timings["rerank_ms"] = round((time.perf_counter() - t3) * 1000, 1)
 
         selected = ordered[:k]
-        if mode == "graphrag":
-            # Bridge chunks: the graph's best evidence that the re-ranker left out. They only
-            # replace weak tail slots, so strong direct matches are never pushed out.
-            bridges = [c for c in graph_ids[:3] if c not in selected]
-            for b in bridges[:2]:
-                weak = [i for i, c in enumerate(selected) if sigmoid(rerank_scores.get(c, 0.0)) < 0.2]
-                if not weak:
-                    break
-                selected[weak[-1]] = b
 
         chunks = []
         for c in selected:
-            score = sigmoid(rerank_scores[c]) if c in rerank_scores else fused[c]
+            score = final.get(c, 0.0)
             rc = self._make(c, round(score, 4), found_by.get(c, []))
             if rc:
                 chunks.append(rc)

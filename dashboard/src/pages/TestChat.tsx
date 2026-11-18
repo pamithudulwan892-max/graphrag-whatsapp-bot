@@ -28,7 +28,9 @@ export default function TestChat() {
     );
   }, [phone]);
 
-  useEffect(() => end.current?.scrollIntoView({ behavior: "smooth" }), [msgs, busy]);
+  useEffect(() => {
+    end.current?.scrollIntoView({ behavior: "smooth" });
+  }, [msgs, busy]);
 
   const send = async (text: string) => {
     if (!text.trim() || busy) return;

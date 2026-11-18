@@ -27,7 +27,7 @@ class Settings(BaseSettings):
     # (auto = Gemini if GEMINI_API_KEY is set, else Claude if ANTHROPIC_API_KEY is set, else offline).
     llm_provider: str = "auto"
     gemini_api_key: str = ""
-    gemini_model: str = "gemini-2.5-flash"
+    gemini_model: str = "gemini-3.5-flash-lite"
     anthropic_api_key: str = ""
     anthropic_model: str = "claude-opus-5-5"
     llm_effort: str = "low"  # Claude only
@@ -40,6 +40,7 @@ class Settings(BaseSettings):
     reranker_model: str = "Xenova/ms-marco-MiniLM-L-6-v2"
     use_reranker: bool = True
     rerank_candidates: int = 12
+    rerank_weight: float = 0.5  # 1.0 = order purely by the cross-encoder
     chunk_size: int = 600  # characters
     chunk_overlap: int = 100
     top_k: int = 6

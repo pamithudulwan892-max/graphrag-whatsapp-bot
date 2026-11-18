@@ -3,6 +3,8 @@
 import json
 import logging
 import re
+import shutil
+import threading
 from contextlib import asynccontextmanager
 from pathlib import Path
 
@@ -23,6 +25,7 @@ log = logging.getLogger("app")
 
 MAX_UPLOAD_BYTES = 20 * 1024 * 1024
 SAMPLE_DIR = ROOT_DIR / "sample_data"
+PREBUILT_DIR = SAMPLE_DIR / "prebuilt_index"
 DASHBOARD_DIST = ROOT_DIR / "dashboard" / "dist"
 EVAL_RESULTS = ROOT_DIR / "eval" / "results" / "latest.json"
 
@@ -39,13 +42,22 @@ def get_services() -> Services:
 async def lifespan(app: FastAPI):
     global services
     settings = get_settings()
+    fresh = not (settings.data_dir / "app.db").exists()
+    if settings.seed_sample_docs and fresh and PREBUILT_DIR.exists():
+        # Free hosts wipe the disk on restart: restore the prebuilt demo index (no LLM calls needed).
+        log.info("Restoring prebuilt demo index from %s", PREBUILT_DIR)
+        shutil.copytree(PREBUILT_DIR, settings.data_dir, dirs_exist_ok=True)
     services = Services(settings)
-    log.info("LLM enabled: %s | extractor: %s", services.llm.enabled, services.extractor.name)
+    log.info("LLM: %s | extractor: %s", services.llm.model or "offline", services.extractor.name)
     if settings.seed_sample_docs and not services.db.list_documents() and SAMPLE_DIR.exists():
-        log.info("Seeding sample documents from %s", SAMPLE_DIR)
-        for path in sorted(SAMPLE_DIR.iterdir()):
-            if path.suffix.lower() in SUPPORTED:
-                _ingest_file(services, path.name, path.read_bytes())
+        log.info("Seeding sample documents from %s in the background", SAMPLE_DIR)
+
+        def seed():
+            for path in sorted(SAMPLE_DIR.iterdir()):
+                if path.suffix.lower() in SUPPORTED:
+                    _ingest_file(services, path.name, path.read_bytes())
+
+        threading.Thread(target=seed, daemon=True).start()
     yield
 
 
