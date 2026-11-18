@@ -8,6 +8,7 @@ import threading
 from contextlib import asynccontextmanager
 from pathlib import Path
 
+import httpx
 from fastapi import BackgroundTasks, Depends, FastAPI, File, Header, HTTPException, Request, Response, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, PlainTextResponse
@@ -287,6 +288,31 @@ def delete_conversation(phone: str, svc: Services = Depends(get_services)):
     svc.db.clear_history(phone)
     svc.db.set_handover(phone, False)
     return {"deleted": phone}
+
+
+class WabaIn(BaseModel):
+    waba_id: str = Field(pattern=r"^\d{5,20}$")
+
+
+@app.post("/api/whatsapp/meta/subscribe", dependencies=admin)
+def meta_subscribe(body: WabaIn):
+    """Subscribe this app to the WhatsApp Business Account so Meta forwards incoming messages.
+
+    Meta's dashboard does not always do this step, and without it no message webhooks arrive.
+    """
+    s = get_settings()
+    if not s.meta_access_token:
+        raise HTTPException(400, "META_ACCESS_TOKEN is not set on the server")
+    url = f"https://graph.facebook.com/{s.meta_graph_version}/{body.waba_id}/subscribed_apps"
+    headers = {"Authorization": f"Bearer {s.meta_access_token}"}
+    try:
+        with httpx.Client(timeout=20) as client:
+            sub = client.post(url, headers=headers)
+            check = client.get(url, headers=headers)
+    except httpx.HTTPError as e:
+        raise HTTPException(502, f"Could not reach Meta: {e}")
+    apps = [a.get("whatsapp_business_api_data", {}).get("name") for a in check.json().get("data", [])] if check.is_success else []
+    return {"subscribe_status": sub.status_code, "subscribe_response": sub.json(), "subscribed_apps": apps}
 
 
 class AgentReplyIn(BaseModel):
