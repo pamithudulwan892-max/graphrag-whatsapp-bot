@@ -41,6 +41,34 @@ class GraphResult:
     chunk_scores: list[tuple[str, float]]
 
 
+def personalized_pagerank(g: nx.Graph, personalization: dict, alpha: float = 0.75, iters: int = 100, tol: float = 1e-8) -> dict:
+    """Random walk that restarts at the question's entities with probability 1 - alpha.
+
+    Written with NumPy because networkx.pagerank needs SciPy, a large extra dependency.
+    """
+    nodes = list(g.nodes)
+    if not nodes:
+        return {}
+    idx = {n: i for i, n in enumerate(nodes)}
+    n = len(nodes)
+    adj = np.zeros((n, n), dtype=np.float64)
+    for u, v in g.edges():
+        adj[idx[u], idx[v]] = adj[idx[v], idx[u]] = 1.0
+    deg = adj.sum(axis=1)
+    trans = np.divide(adj, deg[:, None], out=np.zeros_like(adj), where=deg[:, None] > 0)
+    restart = np.array([personalization.get(x, 0.0) for x in nodes], dtype=np.float64)
+    restart = restart / restart.sum() if restart.sum() > 0 else np.full(n, 1 / n)
+    dangling = deg == 0
+    p = restart.copy()
+    for _ in range(iters):
+        nxt = alpha * (p @ trans + p[dangling].sum() * restart) + (1 - alpha) * restart
+        if np.abs(nxt - p).sum() < tol:
+            p = nxt
+            break
+        p = nxt
+    return {x: float(p[i]) for i, x in enumerate(nodes)}
+
+
 class GraphRetriever:
     def __init__(self, store: GraphStore, embedder, hops: int = 2):
         self.store = store
@@ -98,10 +126,7 @@ class GraphRetriever:
         sub = nx.Graph(ug.subgraph(hood))
         total = sum(seeds.values())
         personalization = {n: seeds.get(n, 0.0) / total for n in sub.nodes}
-        try:
-            ppr = nx.pagerank(sub, alpha=0.75, personalization=personalization, max_iter=200)
-        except nx.PowerIterationFailedConvergence:
-            ppr = personalization
+        ppr = personalized_pagerank(sub, personalization, alpha=0.75)
 
         facts: list[GraphFact] = []
         seen = set()

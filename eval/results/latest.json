@@ -1,0 +1,2390 @@
+{
+  "timestamp": "2026-11-18 07:23 UTC",
+  "n_questions": 30,
+  "llm_model": "gemini-3.5-flash-lite",
+  "extractor": "llm",
+  "top_k": 6,
+  "modes": {
+    "vector": {
+      "context_recall": 0.962,
+      "full_context_hit": 0.923,
+      "context_precision": 0.237,
+      "answer_accuracy": 0.923,
+      "refusal_accuracy": 1.0,
+      "false_refusals": 1,
+      "latency_s_median": 1.46,
+      "by_type": {
+        "multi-hop": {
+          "n": 13,
+          "context_recall": 0.923,
+          "accuracy": 0.846,
+          "correctness": 0.869
+        },
+        "single-hop": {
+          "n": 13,
+          "context_recall": 1.0,
+          "accuracy": 1.0,
+          "correctness": 1.0
+        },
+        "unanswerable": {
+          "n": 4,
+          "context_recall": null,
+          "accuracy": 1.0,
+          "correctness": 1.0
+        }
+      },
+      "faithfulness": 1.0,
+      "answer_relevance": 0.993,
+      "correctness": 0.943,
+      "rows": [
+        {
+          "id": "s01",
+          "type": "single-hop",
+          "question": "What is the price of the Nila FrostFree 340L refrigerator?",
+          "answer": "Hello! The price of the Nila FrostFree 340L Refrigerator is Rs. 154,990 [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 2.56,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer correctly provides the price of the Nila FrostFree 340L Refrigerator as Rs. 154,990, matching the reference and sources."
+          },
+          "retrieved": [
+            "57b0b925c996-0002",
+            "cc8570e99c06-0002",
+            "57b0b925c996-0005",
+            "cc8570e99c06-0003",
+            "57b0b925c996-0004",
+            "57b0b925c996-0001"
+          ]
+        },
+        {
+          "id": "s02",
+          "type": "single-hop",
+          "question": "Who manages the Galle branch?",
+          "answer": "The Galle Branch is managed by Shalini de Silva [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 0.92,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer correctly identifies Shalini de Silva as the manager of the Galle branch, matching both the reference and the source text."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0004",
+            "53476d4cf1f6-0001",
+            "53476d4cf1f6-0002",
+            "53476d4cf1f6-0005",
+            "91cdde65e216-0002",
+            "53476d4cf1f6-0003"
+          ]
+        },
+        {
+          "id": "s03",
+          "type": "single-hop",
+          "question": "What time does the Kandy branch open on Saturday?",
+          "answer": "Hello! The Kandy branch is open from 9.00 AM to 7.00 PM on Saturdays [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 1.19,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer accurately states the opening time for the Kandy branch on Saturday based on the sources and fully matches the reference."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0003",
+            "53476d4cf1f6-0004",
+            "53476d4cf1f6-0005",
+            "53476d4cf1f6-0002",
+            "91cdde65e216-0002",
+            "494c25031c8a-0000"
+          ]
+        },
+        {
+          "id": "s04",
+          "type": "single-hop",
+          "question": "What is the customer care hotline number?",
+          "answer": "Our customer care hotline is 011 245 7788 (available Monday to Saturday, 8.00 AM - 8.00 PM) [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.5,
+          "answer_correct": true,
+          "latency_s": 1.06,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer provides the correct customer care hotline number matching the reference and sources, and includes accurate supporting details."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0006",
+            "08a7e782e29c-0000",
+            "91cdde65e216-0002",
+            "91cdde65e216-0001",
+            "53476d4cf1f6-0001",
+            "91cdde65e216-0000"
+          ]
+        },
+        {
+          "id": "s05",
+          "type": "single-hop",
+          "question": "Can I return an unopened product?",
+          "answer": "Yes! Unopened products can be returned within 7 days of purchase for a full refund, as long as you have the original invoice [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 1.71,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer is fully supported by the sources, directly answers the question, and matches the reference answer completely."
+          },
+          "retrieved": [
+            "91cdde65e216-0003",
+            "08a7e782e29c-0000",
+            "494c25031c8a-0002",
+            "57b0b925c996-0000",
+            "08a7e782e29c-0001",
+            "91cdde65e216-0000"
+          ]
+        },
+        {
+          "id": "s06",
+          "type": "single-hop",
+          "question": "Do you accept American Express?",
+          "answer": "Hello! No, American Express cards are not accepted [1]. We accept cash, Visa and Mastercard credit and debit cards, and bank transfers [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 1.32,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer directly and accurately addresses the question using the provided sources, stating that American Express is not accepted and listing the accepted payment methods."
+          },
+          "retrieved": [
+            "91cdde65e216-0005",
+            "494c25031c8a-0002",
+            "08a7e782e29c-0001",
+            "08a7e782e29c-0000",
+            "91cdde65e216-0003",
+            "57b0b925c996-0006"
+          ]
+        },
+        {
+          "id": "s07",
+          "type": "single-hop",
+          "question": "Who founded Nilaveli Electronics?",
+          "answer": "Nilaveli Electronics was founded in 2009 by Ravindu Perera in Colombo [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 0.92,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer accurately states that Nilaveli Electronics was founded in 2009 by Ravindu Perera, directly matching the reference and sources."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0000",
+            "9eb63f8b9f50-0000",
+            "494c25031c8a-0000",
+            "08a7e782e29c-0000",
+            "57b0b925c996-0000",
+            "53476d4cf1f6-0006"
+          ]
+        },
+        {
+          "id": "s08",
+          "type": "single-hop",
+          "question": "How many Nila Rewards points do I earn when I spend money?",
+          "answer": "As a Nila Rewards member, you earn 1 point for every Rs. 100 spent [1][2]. Joining is free at any branch [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 1.45,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer accurately states that members earn 1 point for every Rs. 100 spent, matching the reference and sources, and directly addresses the question."
+          },
+          "retrieved": [
+            "08a7e782e29c-0001",
+            "08a7e782e29c-0000",
+            "91cdde65e216-0000",
+            "494c25031c8a-0001",
+            "57b0b925c996-0005",
+            "57b0b925c996-0004"
+          ]
+        },
+        {
+          "id": "s09",
+          "type": "single-hop",
+          "question": "How much does same-day delivery cost in Colombo?",
+          "answer": "Same-day delivery in Colombo city is available for orders placed before 12 noon for an extra Rs. 1,500 [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 1.32,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer directly and accurately addresses the question using the exact information from the sources and matches the reference answer."
+          },
+          "retrieved": [
+            "91cdde65e216-0004",
+            "91cdde65e216-0002",
+            "53476d4cf1f6-0002",
+            "57b0b925c996-0000",
+            "57b0b925c996-0004",
+            "57b0b925c996-0001"
+          ]
+        },
+        {
+          "id": "s10",
+          "type": "single-hop",
+          "question": "When does the Year-End Sale end?",
+          "answer": "The Year-End Sale 2026 ends on 31 December 2026 [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 1.31,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer accurately states the end date of the sale based on the provided sources, directly answers the question, and matches the reference answer."
+          },
+          "retrieved": [
+            "494c25031c8a-0000",
+            "494c25031c8a-0002",
+            "57b0b925c996-0000",
+            "91cdde65e216-0003",
+            "91cdde65e216-0005",
+            "91cdde65e216-0001"
+          ]
+        },
+        {
+          "id": "s11",
+          "type": "single-hop",
+          "question": "Do you sell Samsung or LG products?",
+          "answer": "No, Nilaveli Electronics sells only its own Nila brand products and does not sell other brands like Samsung or LG [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 1.64,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer directly and accurately addresses the question using information from the sources, perfectly aligning with the reference answer."
+          },
+          "retrieved": [
+            "08a7e782e29c-0000",
+            "57b0b925c996-0000",
+            "53476d4cf1f6-0000",
+            "494c25031c8a-0000",
+            "9eb63f8b9f50-0000",
+            "57b0b925c996-0004"
+          ]
+        },
+        {
+          "id": "s12",
+          "type": "single-hop",
+          "question": "Who is the CEO of the company?",
+          "answer": "The Chief Executive Officer (CEO) of Nilaveli Electronics is Ishara Fernando [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 1.07,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer correctly identifies Ishara Fernando as the CEO based on the sources, directly answers the question, and matches the reference answer."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0001",
+            "9eb63f8b9f50-0002",
+            "53476d4cf1f6-0000",
+            "494c25031c8a-0000",
+            "9eb63f8b9f50-0000",
+            "08a7e782e29c-0000"
+          ]
+        },
+        {
+          "id": "m01",
+          "type": "multi-hop",
+          "question": "How long is the compressor warranty on the Nila AirCool 12000?",
+          "answer": "Hello! The Nila AirCool 12000 Inverter AC comes with a Gold Care warranty plan [2], which includes a 10-year warranty on the inverter compressor [4].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 1.18,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer accurately states that the Nila AirCool 12000 has a 10-year warranty on the inverter compressor based on the Gold Care warranty plan, perfectly matching the reference and sources."
+          },
+          "retrieved": [
+            "cc8570e99c06-0000",
+            "57b0b925c996-0001",
+            "cc8570e99c06-0001",
+            "91cdde65e216-0000",
+            "57b0b925c996-0002",
+            "57b0b925c996-0005"
+          ]
+        },
+        {
+          "id": "m02",
+          "type": "multi-hop",
+          "question": "How long are parts and labour covered on the Nila VisionMax 55 inch TV?",
+          "answer": "Hello! The Nila VisionMax 55 inch TV comes with the Silver Care warranty plan [2], which covers parts and labour for 2 years [4].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 1.19,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer correctly identifies that the Nila VisionMax 55 inch TV has the Silver Care warranty plan, which covers parts and labour for 2 years, perfectly matching the reference and sources."
+          },
+          "retrieved": [
+            "cc8570e99c06-0006",
+            "57b0b925c996-0004",
+            "cc8570e99c06-0007",
+            "91cdde65e216-0000",
+            "57b0b925c996-0005",
+            "08a7e782e29c-0000"
+          ]
+        },
+        {
+          "id": "m03",
+          "type": "multi-hop",
+          "question": "Is the motor of the WashPro 8kg washer covered for 10 years?",
+          "answer": "Yes! The Nila WashPro 8kg Front Load Washer comes with Gold Care warranty [2], which includes a 10-year warranty on the washing machine motor [3].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 1.3,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer directly and accurately addresses the question, citing the correct sources to confirm that the motor of the WashPro 8kg washer is covered for 10 years under the Gold Care plan."
+          },
+          "retrieved": [
+            "cc8570e99c06-0004",
+            "57b0b925c996-0003",
+            "91cdde65e216-0001",
+            "ded6ec39bcc4-0003",
+            "cc8570e99c06-0005",
+            "91cdde65e216-0000"
+          ]
+        },
+        {
+          "id": "m04",
+          "type": "multi-hop",
+          "question": "If my RiceMaster rice cooker breaks, will a technician come to my home?",
+          "answer": "Hello! For the Nila RiceMaster 1.8L Rice Cooker, which has the Basic Care warranty plan [2], repairs are carry-in, meaning you bring the product to a branch [6]. A technician will not come to your home for this model [6].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 0.96,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer accurately states that a technician will not come to the home because the RiceMaster has the Basic Care warranty plan, which is carry-in, fully supported by the sources and matching the reference answer."
+          },
+          "retrieved": [
+            "cc8570e99c06-0009",
+            "57b0b925c996-0005",
+            "91cdde65e216-0002",
+            "ded6ec39bcc4-0004",
+            "91cdde65e216-0001",
+            "91cdde65e216-0000"
+          ]
+        },
+        {
+          "id": "m05",
+          "type": "multi-hop",
+          "question": "Which branches with a service centre are open on Sundays?",
+          "answer": "Our branches with a service centre that are open on Sundays are:\n- Colombo 03 Flagship Branch (10.00 AM - 6.00 PM) [4][5]\n- Galle Branch (10.00 AM - 2.00 PM) [1][5]",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 38.12,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer accurately identifies the two branches with service centres that are open on Sundays based on the sources, matching the reference answer completely."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0004",
+            "53476d4cf1f6-0005",
+            "53476d4cf1f6-0003",
+            "53476d4cf1f6-0002",
+            "91cdde65e216-0002",
+            "57b0b925c996-0006"
+          ]
+        },
+        {
+          "id": "m06",
+          "type": "multi-hop",
+          "question": "Who manages the branch at 12 Wakwella Road?",
+          "answer": "Hello! The branch at 12 Wakwella Road (Galle Branch) is managed by Shalini de Silva [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 1.57,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer correctly identifies Shalini de Silva as the manager of the branch at 12 Wakwella Road, matching both the sources and the reference."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0004",
+            "53476d4cf1f6-0005",
+            "53476d4cf1f6-0002",
+            "53476d4cf1f6-0003",
+            "91cdde65e216-0002",
+            "53476d4cf1f6-0001"
+          ]
+        },
+        {
+          "id": "m07",
+          "type": "multi-hop",
+          "question": "Can I pay for the Nila AirCool 12000 Inverter AC in 0% instalments?",
+          "answer": "I'm sorry, I don't have that information. Would you like me to connect you with a team member?",
+          "answerable": false,
+          "unanswerable": false,
+          "context_recall": 0.5,
+          "full_context_hit": false,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": false,
+          "latency_s": 1.6,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 0.0,
+            "reason": "The answer is a refusal, which is technically faithful to having no info in the sources, but it fails to provide the correct information present in the reference."
+          },
+          "retrieved": [
+            "57b0b925c996-0001",
+            "cc8570e99c06-0000",
+            "cc8570e99c06-0001",
+            "494c25031c8a-0001",
+            "57b0b925c996-0005",
+            "08a7e782e29c-0000"
+          ]
+        },
+        {
+          "id": "m08",
+          "type": "multi-hop",
+          "question": "Is delivery free if I order only a RiceMaster rice cooker to Colombo?",
+          "answer": "Hi! Delivery is free within the Colombo and Gampaha districts for orders above Rs. 50,000 [1]. Since the Nila RiceMaster 1.8L Rice Cooker costs Rs. 12,900 [3], delivery will not be free [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 1.18,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer correctly identifies that delivery is not free because the rice cooker costs less than the 50,000 threshold, fully supported by the sources and matching the reference."
+          },
+          "retrieved": [
+            "91cdde65e216-0004",
+            "cc8570e99c06-0009",
+            "57b0b925c996-0005",
+            "53476d4cf1f6-0002",
+            "57b0b925c996-0000",
+            "91cdde65e216-0002"
+          ]
+        },
+        {
+          "id": "m09",
+          "type": "multi-hop",
+          "question": "What is the price of the WashPro 8kg washer during the Year-End Sale?",
+          "answer": "Hello! The regular price of the Nila WashPro 8kg Front Load Washer is Rs. 139,900 [2], and you can get 15% off during the Year-End Sale [3] which runs from 1 December to 31 December 2026 [4]. Let me know if you need any more help!",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 1.46,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 0.8,
+            "correctness": 0.8,
+            "reason": "The answer provides the regular price and the 15% discount information, but doesn't explicitly calculate or state the final sale price (Rs. 118,915) as given in the reference, though the facts provided are entirely faithful."
+          },
+          "retrieved": [
+            "cc8570e99c06-0004",
+            "57b0b925c996-0003",
+            "494c25031c8a-0001",
+            "494c25031c8a-0000",
+            "cc8570e99c06-0005",
+            "57b0b925c996-0000"
+          ]
+        },
+        {
+          "id": "m10",
+          "type": "multi-hop",
+          "question": "Can I see the AirCool 18000 at the Kurunegala branch?",
+          "answer": "Hello! The Kurunegala Branch is a compact showroom and does not stock air conditioners, but you can order the Nila AirCool 18000 there for home delivery [1]. Would you like to connect with a team member?",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 1.45,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer directly addresses the question using accurate information from the sources, correctly stating that the Kurunegala branch does not stock air conditioners but that the AirCool 18000 can be ordered there for home delivery."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0005",
+            "cc8570e99c06-0001",
+            "494c25031c8a-0001",
+            "53476d4cf1f6-0003",
+            "53476d4cf1f6-0002",
+            "57b0b925c996-0001"
+          ]
+        },
+        {
+          "id": "m11",
+          "type": "multi-hop",
+          "question": "If I hand in a faulty TV at the Kandy branch, how long will the repair take?",
+          "answer": "Hello! If you hand in a product at the Kandy branch, it is sent to the Colombo 03 service centre, and repairs take 7 to 10 working days [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 1.57,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer is fully faithful to the sources, directly answers the question about the Kandy branch, and completely matches the reference answer."
+          },
+          "retrieved": [
+            "91cdde65e216-0002",
+            "53476d4cf1f6-0003",
+            "91cdde65e216-0003",
+            "57b0b925c996-0004",
+            "91cdde65e216-0001",
+            "53476d4cf1f6-0005"
+          ]
+        },
+        {
+          "id": "m12",
+          "type": "multi-hop",
+          "question": "What free gift do I get if I buy a Nila AirCool during the sale, and how much is that gift normally?",
+          "answer": "Hello! If you buy a Nila AirCool air conditioner during the Year-End Sale, you get a free *Nila BreezeLine 16 inch Pedestal Fan* [1]. However, our sources do not mention the normal price of this fan. Would you like me to connect you with a team member?",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 0.5,
+          "full_context_hit": false,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": false,
+          "latency_s": 42.08,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 0.5,
+            "reason": "The answer correctly identifies the free gift (Nila BreezeLine 16 inch Pedestal Fan) using the sources, but it fails to mention its normal price because the price is not present in the provided sources, whereas the reference answer states it normally costs Rs. 9,750."
+          },
+          "retrieved": [
+            "494c25031c8a-0001",
+            "cc8570e99c06-0001",
+            "57b0b925c996-0001",
+            "08a7e782e29c-0000",
+            "cc8570e99c06-0000",
+            "08a7e782e29c-0001"
+          ]
+        },
+        {
+          "id": "m13",
+          "type": "multi-hop",
+          "question": "Who leads the service centres, and where are they?",
+          "answer": "The service centres are led by Mahesh Ratnayake, the Head of After-Sales Service [1]. They are located at the Colombo 03 Flagship Branch (214 Galle Road, Kollupitiya, Colombo 03) and the Galle Branch [2][4].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 2.36,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer accurately identifies Mahesh Ratnayake as the leader of the service centres and lists their locations at the Colombo 03 Flagship Branch and the Galle Branch, matching the reference and sources fully."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0001",
+            "91cdde65e216-0002",
+            "9eb63f8b9f50-0000",
+            "53476d4cf1f6-0002",
+            "53476d4cf1f6-0000",
+            "9eb63f8b9f50-0001"
+          ]
+        },
+        {
+          "id": "s13",
+          "type": "single-hop",
+          "question": "Do you sell iPhones?",
+          "answer": "Hello! No, Nilaveli Electronics sells only its own Nila brand products and does not sell iPhones [2].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 4.14,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer accurately states that Nilaveli Electronics only sells its own Nila brand products and does not sell iPhones, perfectly matching the reference and supported by the sources."
+          },
+          "retrieved": [
+            "494c25031c8a-0002",
+            "08a7e782e29c-0000",
+            "08a7e782e29c-0001",
+            "494c25031c8a-0000",
+            "9eb63f8b9f50-0000",
+            "91cdde65e216-0005"
+          ]
+        },
+        {
+          "id": "u02",
+          "type": "unanswerable",
+          "question": "What is the warranty on the Nila SmartWatch?",
+          "answer": "I am sorry, I don't have that information in my sources. Would you like me to connect you with a team member?",
+          "answerable": false,
+          "unanswerable": true,
+          "context_recall": null,
+          "full_context_hit": null,
+          "context_precision": null,
+          "answer_correct": true,
+          "latency_s": 4.89,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The Nila SmartWatch is not present in the sources, and the answer correctly states that the information is not available."
+          },
+          "retrieved": [
+            "57b0b925c996-0004",
+            "08a7e782e29c-0000",
+            "91cdde65e216-0000",
+            "57b0b925c996-0005",
+            "57b0b925c996-0002",
+            "57b0b925c996-0000"
+          ]
+        },
+        {
+          "id": "u03",
+          "type": "unanswerable",
+          "question": "What is the CEO's salary?",
+          "answer": "I am sorry, I don't have that information. Would you like me to connect you with a team member?",
+          "answerable": false,
+          "unanswerable": true,
+          "context_recall": null,
+          "full_context_hit": null,
+          "context_precision": null,
+          "answer_correct": true,
+          "latency_s": 4.61,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer correctly states that the information is not available in the sources, matching the reference answer."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0001",
+            "9eb63f8b9f50-0000",
+            "08a7e782e29c-0001",
+            "9eb63f8b9f50-0001",
+            "53476d4cf1f6-0006",
+            "494c25031c8a-0000"
+          ]
+        },
+        {
+          "id": "u04",
+          "type": "unanswerable",
+          "question": "Is there a student discount?",
+          "answer": "Hello! I am sorry, but I don't have that information. Would you like me to connect you with a team member?",
+          "answerable": false,
+          "unanswerable": true,
+          "context_recall": null,
+          "full_context_hit": null,
+          "context_precision": null,
+          "answer_correct": true,
+          "latency_s": 2.74,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer correctly states that the information is not available, which matches the reference answer and the sources."
+          },
+          "retrieved": [
+            "494c25031c8a-0002",
+            "08a7e782e29c-0001",
+            "57b0b925c996-0000",
+            "08a7e782e29c-0000",
+            "91cdde65e216-0005",
+            "494c25031c8a-0000"
+          ]
+        },
+        {
+          "id": "u05",
+          "type": "unanswerable",
+          "question": "When will the Jaffna branch open?",
+          "answer": "I'm sorry, I don't have that information about a Jaffna branch. Would you like me to connect you with a team member?",
+          "answerable": false,
+          "unanswerable": true,
+          "context_recall": null,
+          "full_context_hit": null,
+          "context_precision": null,
+          "answer_correct": true,
+          "latency_s": 3.44,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer correctly states that the information about the Jaffna branch is not available in the sources, perfectly matching the reference answer."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0003",
+            "53476d4cf1f6-0005",
+            "494c25031c8a-0000",
+            "53476d4cf1f6-0004",
+            "53476d4cf1f6-0002",
+            "57b0b925c996-0000"
+          ]
+        }
+      ]
+    },
+    "hybrid": {
+      "context_recall": 0.962,
+      "full_context_hit": 0.923,
+      "context_precision": 0.244,
+      "answer_accuracy": 0.923,
+      "refusal_accuracy": 1.0,
+      "false_refusals": 2,
+      "latency_s_median": 3.9,
+      "by_type": {
+        "multi-hop": {
+          "n": 13,
+          "context_recall": 0.923,
+          "accuracy": 0.846
+        },
+        "single-hop": {
+          "n": 13,
+          "context_recall": 1.0,
+          "accuracy": 1.0
+        },
+        "unanswerable": {
+          "n": 4,
+          "context_recall": null,
+          "accuracy": 1.0
+        }
+      },
+      "rows": [
+        {
+          "id": "s01",
+          "type": "single-hop",
+          "question": "What is the price of the Nila FrostFree 340L refrigerator?",
+          "answer": "Hello! The price of the Nila FrostFree 340L Refrigerator is Rs. 154,990 [1]. Let me know if you need anything else!",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 3.68,
+          "judge": null,
+          "retrieved": [
+            "57b0b925c996-0002",
+            "cc8570e99c06-0002",
+            "57b0b925c996-0005",
+            "cc8570e99c06-0003",
+            "57b0b925c996-0001",
+            "57b0b925c996-0003"
+          ]
+        },
+        {
+          "id": "s02",
+          "type": "single-hop",
+          "question": "Who manages the Galle branch?",
+          "answer": "The Galle branch is managed by Shalini de Silva [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 7.13,
+          "judge": null,
+          "retrieved": [
+            "53476d4cf1f6-0004",
+            "53476d4cf1f6-0002",
+            "91cdde65e216-0002",
+            "53476d4cf1f6-0005",
+            "53476d4cf1f6-0001",
+            "53476d4cf1f6-0003"
+          ]
+        },
+        {
+          "id": "s03",
+          "type": "single-hop",
+          "question": "What time does the Kandy branch open on Saturday?",
+          "answer": "Hello! The Kandy branch is open from 9.00 AM to 7.00 PM on Saturdays [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 5.99,
+          "judge": null,
+          "retrieved": [
+            "53476d4cf1f6-0003",
+            "53476d4cf1f6-0005",
+            "53476d4cf1f6-0004",
+            "53476d4cf1f6-0002",
+            "91cdde65e216-0002",
+            "53476d4cf1f6-0006"
+          ]
+        },
+        {
+          "id": "s04",
+          "type": "single-hop",
+          "question": "What is the customer care hotline number?",
+          "answer": "Hello! Our customer care hotline is 011 245 7788, available Monday to Saturday from 8.00 AM to 8.00 PM [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.5,
+          "answer_correct": true,
+          "latency_s": 1.46,
+          "judge": null,
+          "retrieved": [
+            "53476d4cf1f6-0006",
+            "08a7e782e29c-0000",
+            "91cdde65e216-0002",
+            "91cdde65e216-0000",
+            "53476d4cf1f6-0001",
+            "53476d4cf1f6-0000"
+          ]
+        },
+        {
+          "id": "s05",
+          "type": "single-hop",
+          "question": "Can I return an unopened product?",
+          "answer": "Yes! Unopened products can be returned within 7 days of purchase for a full refund, provided you have the original invoice [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 1.58,
+          "judge": null,
+          "retrieved": [
+            "91cdde65e216-0003",
+            "57b0b925c996-0000",
+            "91cdde65e216-0000",
+            "08a7e782e29c-0000",
+            "57b0b925c996-0002",
+            "57b0b925c996-0005"
+          ]
+        },
+        {
+          "id": "s06",
+          "type": "single-hop",
+          "question": "Do you accept American Express?",
+          "answer": "Hello! No, we do not accept American Express cards [1]. We accept cash, Visa and Mastercard credit and debit cards, and bank transfers [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 1.72,
+          "judge": null,
+          "retrieved": [
+            "91cdde65e216-0005",
+            "494c25031c8a-0002",
+            "08a7e782e29c-0001",
+            "08a7e782e29c-0000",
+            "91cdde65e216-0003",
+            "57b0b925c996-0006"
+          ]
+        },
+        {
+          "id": "s07",
+          "type": "single-hop",
+          "question": "Who founded Nilaveli Electronics?",
+          "answer": "Nilaveli Electronics was founded in 2009 by Ravindu Perera in Colombo [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 1.84,
+          "judge": null,
+          "retrieved": [
+            "53476d4cf1f6-0000",
+            "9eb63f8b9f50-0000",
+            "494c25031c8a-0000",
+            "57b0b925c996-0000",
+            "08a7e782e29c-0000",
+            "91cdde65e216-0001"
+          ]
+        },
+        {
+          "id": "s08",
+          "type": "single-hop",
+          "question": "How many Nila Rewards points do I earn when I spend money?",
+          "answer": "As a Nila Rewards member, you earn 1 point for every Rs. 100 spent [1][2].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 1.71,
+          "judge": null,
+          "retrieved": [
+            "08a7e782e29c-0001",
+            "08a7e782e29c-0000",
+            "494c25031c8a-0001",
+            "57b0b925c996-0005",
+            "cc8570e99c06-0001",
+            "57b0b925c996-0002"
+          ]
+        },
+        {
+          "id": "s09",
+          "type": "single-hop",
+          "question": "How much does same-day delivery cost in Colombo?",
+          "answer": "Same-day delivery is available in Colombo city for orders placed before 12 noon, for an extra Rs. 1,500 [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 2.25,
+          "judge": null,
+          "retrieved": [
+            "91cdde65e216-0004",
+            "57b0b925c996-0001",
+            "53476d4cf1f6-0002",
+            "91cdde65e216-0002",
+            "53476d4cf1f6-0005",
+            "57b0b925c996-0004"
+          ]
+        },
+        {
+          "id": "s10",
+          "type": "single-hop",
+          "question": "When does the Year-End Sale end?",
+          "answer": "The Year-End Sale ends on 31 December 2026 [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 1.45,
+          "judge": null,
+          "retrieved": [
+            "494c25031c8a-0000",
+            "494c25031c8a-0001",
+            "494c25031c8a-0002",
+            "9eb63f8b9f50-0001",
+            "57b0b925c996-0000",
+            "91cdde65e216-0003"
+          ]
+        },
+        {
+          "id": "s11",
+          "type": "single-hop",
+          "question": "Do you sell Samsung or LG products?",
+          "answer": "Hello! No, Nilaveli Electronics sells only its own Nila brand products and does not carry brands like Samsung or LG [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 2.11,
+          "judge": null,
+          "retrieved": [
+            "08a7e782e29c-0000",
+            "53476d4cf1f6-0000",
+            "91cdde65e216-0002",
+            "57b0b925c996-0006",
+            "57b0b925c996-0000",
+            "91cdde65e216-0003"
+          ]
+        },
+        {
+          "id": "s12",
+          "type": "single-hop",
+          "question": "Who is the CEO of the company?",
+          "answer": "Hello! The Chief Executive Officer (CEO) of Nilaveli Electronics is Ishara Fernando [5].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 31.54,
+          "judge": null,
+          "retrieved": [
+            "9eb63f8b9f50-0002",
+            "53476d4cf1f6-0000",
+            "9eb63f8b9f50-0001",
+            "08a7e782e29c-0001",
+            "53476d4cf1f6-0001",
+            "494c25031c8a-0000"
+          ]
+        },
+        {
+          "id": "m01",
+          "type": "multi-hop",
+          "question": "How long is the compressor warranty on the Nila AirCool 12000?",
+          "answer": "Hello! The Nila AirCool 12000 Inverter AC comes with Gold Care [4], which includes a 10-year warranty on the inverter compressor [3][5].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.5,
+          "answer_correct": true,
+          "latency_s": 13.48,
+          "judge": null,
+          "retrieved": [
+            "cc8570e99c06-0000",
+            "cc8570e99c06-0001",
+            "91cdde65e216-0000",
+            "57b0b925c996-0001",
+            "91cdde65e216-0001",
+            "57b0b925c996-0005"
+          ]
+        },
+        {
+          "id": "m02",
+          "type": "multi-hop",
+          "question": "How long are parts and labour covered on the Nila VisionMax 55 inch TV?",
+          "answer": "Hello! Parts and labour for the Nila VisionMax 55 inch TV are covered for 2 years under the Silver Care warranty plan [2][4].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 6.47,
+          "judge": null,
+          "retrieved": [
+            "cc8570e99c06-0007",
+            "91cdde65e216-0000",
+            "cc8570e99c06-0006",
+            "57b0b925c996-0004",
+            "91cdde65e216-0001",
+            "57b0b925c996-0005"
+          ]
+        },
+        {
+          "id": "m03",
+          "type": "multi-hop",
+          "question": "Is the motor of the WashPro 8kg washer covered for 10 years?",
+          "answer": "Yes! The Nila WashPro 8kg Front Load Washer comes with the Gold Care warranty plan [4], which includes a 10-year warranty on the washing machine's motor [2].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 5.94,
+          "judge": null,
+          "retrieved": [
+            "cc8570e99c06-0004",
+            "91cdde65e216-0001",
+            "494c25031c8a-0001",
+            "57b0b925c996-0003",
+            "cc8570e99c06-0005",
+            "91cdde65e216-0000"
+          ]
+        },
+        {
+          "id": "m04",
+          "type": "multi-hop",
+          "question": "If my RiceMaster rice cooker breaks, will a technician come to my home?",
+          "answer": "Hello! For the Nila RiceMaster 1.8L Rice Cooker, the warranty plan is Basic Care [2]. Basic Care covers parts and labour for 1 year and repairs are carry-in, meaning you bring the product to any branch [4]. A technician will not come to your home for this plan [4].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 5.57,
+          "judge": null,
+          "retrieved": [
+            "cc8570e99c06-0009",
+            "57b0b925c996-0005",
+            "08a7e782e29c-0000",
+            "91cdde65e216-0000",
+            "53476d4cf1f6-0005",
+            "53476d4cf1f6-0000"
+          ]
+        },
+        {
+          "id": "m05",
+          "type": "multi-hop",
+          "question": "Which branches with a service centre are open on Sundays?",
+          "answer": "Branches with a service centre that are open on Sundays include:\n- Colombo 03 Flagship Branch: 10.00 AM - 6.00 PM [2]\n- Galle Branch: 10.00 AM - 2.00 PM [1]\n\nBoth the Colombo 03 and Galle branches have service centres for repairs [1][2].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 1.32,
+          "judge": null,
+          "retrieved": [
+            "53476d4cf1f6-0004",
+            "53476d4cf1f6-0002",
+            "53476d4cf1f6-0005",
+            "53476d4cf1f6-0003",
+            "91cdde65e216-0002",
+            "9eb63f8b9f50-0000"
+          ]
+        },
+        {
+          "id": "m06",
+          "type": "multi-hop",
+          "question": "Who manages the branch at 12 Wakwella Road?",
+          "answer": "The branch at 12 Wakwella Road is the Galle Branch, and it is managed by Shalini de Silva [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 9.8,
+          "judge": null,
+          "retrieved": [
+            "53476d4cf1f6-0004",
+            "53476d4cf1f6-0005",
+            "53476d4cf1f6-0002",
+            "53476d4cf1f6-0003",
+            "91cdde65e216-0002",
+            "57b0b925c996-0006"
+          ]
+        },
+        {
+          "id": "m07",
+          "type": "multi-hop",
+          "question": "Can I pay for the Nila AirCool 12000 Inverter AC in 0% instalments?",
+          "answer": "I'm sorry, I don't have that information. Would you like me to connect you with a team member?",
+          "answerable": false,
+          "unanswerable": false,
+          "context_recall": 0.5,
+          "full_context_hit": false,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": false,
+          "latency_s": 5.17,
+          "judge": null,
+          "retrieved": [
+            "57b0b925c996-0001",
+            "cc8570e99c06-0000",
+            "cc8570e99c06-0001",
+            "494c25031c8a-0001",
+            "08a7e782e29c-0000",
+            "57b0b925c996-0005"
+          ]
+        },
+        {
+          "id": "m08",
+          "type": "multi-hop",
+          "question": "Is delivery free if I order only a RiceMaster rice cooker to Colombo?",
+          "answer": "Hello! Delivery is free within the Colombo and Gampaha districts for orders above Rs. 50,000 [1]. Since the Nila RiceMaster 1.8L Rice Cooker costs Rs. 12,900 [3], delivery will not be free [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 4.5,
+          "judge": null,
+          "retrieved": [
+            "91cdde65e216-0004",
+            "cc8570e99c06-0009",
+            "57b0b925c996-0005",
+            "53476d4cf1f6-0002",
+            "08a7e782e29c-0000",
+            "53476d4cf1f6-0005"
+          ]
+        },
+        {
+          "id": "m09",
+          "type": "multi-hop",
+          "question": "What is the price of the WashPro 8kg washer during the Year-End Sale?",
+          "answer": "Hello! The Nila WashPro 8kg Front Load Washer is priced at Rs. 139,900 [2], and you can get 15% off during the Year-End Sale [1] running from 1 December to 31 December 2026 [4].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 8.82,
+          "judge": null,
+          "retrieved": [
+            "494c25031c8a-0001",
+            "57b0b925c996-0003",
+            "cc8570e99c06-0004",
+            "494c25031c8a-0000",
+            "cc8570e99c06-0005",
+            "57b0b925c996-0005"
+          ]
+        },
+        {
+          "id": "m10",
+          "type": "multi-hop",
+          "question": "Can I see the AirCool 18000 at the Kurunegala branch?",
+          "answer": "Hello! The Kurunegala Branch is a compact showroom and does not stock air conditioners, but you can order them there for home delivery [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 3.82,
+          "judge": null,
+          "retrieved": [
+            "53476d4cf1f6-0005",
+            "cc8570e99c06-0001",
+            "57b0b925c996-0001",
+            "cc8570e99c06-0000",
+            "91cdde65e216-0002",
+            "53476d4cf1f6-0003"
+          ]
+        },
+        {
+          "id": "m11",
+          "type": "multi-hop",
+          "question": "If I hand in a faulty TV at the Kandy branch, how long will the repair take?",
+          "answer": "Hi! If you hand in a product at the Kandy branch, it is sent to the Colombo 03 service centre, and repairs take 7 to 10 working days [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 8.87,
+          "judge": null,
+          "retrieved": [
+            "91cdde65e216-0002",
+            "53476d4cf1f6-0003",
+            "91cdde65e216-0003",
+            "57b0b925c996-0004",
+            "08a7e782e29c-0000",
+            "53476d4cf1f6-0005"
+          ]
+        },
+        {
+          "id": "m12",
+          "type": "multi-hop",
+          "question": "What free gift do I get if I buy a Nila AirCool during the sale, and how much is that gift normally?",
+          "answer": "I'm sorry, I don't have information on the normal price of the free gift. Would you like me to connect you with a team member?",
+          "answerable": false,
+          "unanswerable": false,
+          "context_recall": 0.5,
+          "full_context_hit": false,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": false,
+          "latency_s": 1.85,
+          "judge": null,
+          "retrieved": [
+            "494c25031c8a-0001",
+            "08a7e782e29c-0001",
+            "57b0b925c996-0001",
+            "cc8570e99c06-0001",
+            "cc8570e99c06-0000",
+            "08a7e782e29c-0000"
+          ]
+        },
+        {
+          "id": "m13",
+          "type": "multi-hop",
+          "question": "Who leads the service centres, and where are they?",
+          "answer": "Hello! The two service centres are led by Mahesh Ratnayake, the Head of After-Sales Service [1]. They are located at the Colombo 03 Flagship Branch (214 Galle Road, Kollupitiya, Colombo 03) and the Galle Branch (12 Wakwella Road, Galle) [2][4][5].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 4.23,
+          "judge": null,
+          "retrieved": [
+            "53476d4cf1f6-0001",
+            "91cdde65e216-0002",
+            "9eb63f8b9f50-0000",
+            "53476d4cf1f6-0004",
+            "53476d4cf1f6-0002",
+            "9eb63f8b9f50-0001"
+          ]
+        },
+        {
+          "id": "s13",
+          "type": "single-hop",
+          "question": "Do you sell iPhones?",
+          "answer": "No, Nilaveli Electronics sells only its own Nila brand products, such as air conditioners, refrigerators, washing machines, televisions, and small kitchen appliances [1][2]. We do not sell other brands like Apple [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 2.5,
+          "judge": null,
+          "retrieved": [
+            "08a7e782e29c-0000",
+            "53476d4cf1f6-0000",
+            "494c25031c8a-0002",
+            "08a7e782e29c-0001",
+            "494c25031c8a-0000",
+            "9eb63f8b9f50-0000"
+          ]
+        },
+        {
+          "id": "u02",
+          "type": "unanswerable",
+          "question": "What is the warranty on the Nila SmartWatch?",
+          "answer": "I'm sorry, I don't have that information. Would you like me to connect you with a team member?",
+          "answerable": false,
+          "unanswerable": true,
+          "context_recall": null,
+          "full_context_hit": null,
+          "context_precision": null,
+          "answer_correct": true,
+          "latency_s": 3.7,
+          "judge": null,
+          "retrieved": [
+            "57b0b925c996-0004",
+            "91cdde65e216-0000",
+            "08a7e782e29c-0000",
+            "57b0b925c996-0001",
+            "57b0b925c996-0005",
+            "57b0b925c996-0002"
+          ]
+        },
+        {
+          "id": "u03",
+          "type": "unanswerable",
+          "question": "What is the CEO's salary?",
+          "answer": "I'm sorry, I don't have that information. Would you like me to connect you with a team member?",
+          "answerable": false,
+          "unanswerable": true,
+          "context_recall": null,
+          "full_context_hit": null,
+          "context_precision": null,
+          "answer_correct": true,
+          "latency_s": 3.97,
+          "judge": null,
+          "retrieved": [
+            "08a7e782e29c-0001",
+            "91cdde65e216-0000",
+            "53476d4cf1f6-0001",
+            "ded6ec39bcc4-0004",
+            "9eb63f8b9f50-0000",
+            "9eb63f8b9f50-0001"
+          ]
+        },
+        {
+          "id": "u04",
+          "type": "unanswerable",
+          "question": "Is there a student discount?",
+          "answer": "I am sorry, I don't have that information. Would you like me to connect you with a team member?",
+          "answerable": false,
+          "unanswerable": true,
+          "context_recall": null,
+          "full_context_hit": null,
+          "context_precision": null,
+          "answer_correct": true,
+          "latency_s": 4.09,
+          "judge": null,
+          "retrieved": [
+            "494c25031c8a-0002",
+            "08a7e782e29c-0001",
+            "57b0b925c996-0000",
+            "08a7e782e29c-0000",
+            "91cdde65e216-0005",
+            "494c25031c8a-0000"
+          ]
+        },
+        {
+          "id": "u05",
+          "type": "unanswerable",
+          "question": "When will the Jaffna branch open?",
+          "answer": "I'm sorry, I don't have that information. Would you like me to connect you with a team member?",
+          "answerable": false,
+          "unanswerable": true,
+          "context_recall": null,
+          "full_context_hit": null,
+          "context_precision": null,
+          "answer_correct": true,
+          "latency_s": 2.77,
+          "judge": null,
+          "retrieved": [
+            "53476d4cf1f6-0005",
+            "53476d4cf1f6-0003",
+            "53476d4cf1f6-0002",
+            "53476d4cf1f6-0004",
+            "91cdde65e216-0002",
+            "57b0b925c996-0006"
+          ]
+        }
+      ]
+    },
+    "graphrag": {
+      "context_recall": 0.981,
+      "full_context_hit": 0.962,
+      "context_precision": 0.25,
+      "answer_accuracy": 0.962,
+      "refusal_accuracy": 1.0,
+      "false_refusals": 1,
+      "latency_s_median": 2.56,
+      "by_type": {
+        "multi-hop": {
+          "n": 13,
+          "context_recall": 0.962,
+          "accuracy": 0.923,
+          "correctness": 0.885
+        },
+        "single-hop": {
+          "n": 13,
+          "context_recall": 1.0,
+          "accuracy": 1.0,
+          "correctness": 1.0
+        },
+        "unanswerable": {
+          "n": 4,
+          "context_recall": null,
+          "accuracy": 1.0,
+          "correctness": 1.0
+        }
+      },
+      "faithfulness": 1.0,
+      "answer_relevance": 0.977,
+      "correctness": 0.95,
+      "rows": [
+        {
+          "id": "s01",
+          "type": "single-hop",
+          "question": "What is the price of the Nila FrostFree 340L refrigerator?",
+          "answer": "The Nila FrostFree 340L Refrigerator is priced at Rs. 154,990 [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 7.12,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer directly and accurately provides the correct price of the Nila FrostFree 340L refrigerator as supported by the sources and reference answer."
+          },
+          "retrieved": [
+            "57b0b925c996-0002",
+            "cc8570e99c06-0002",
+            "57b0b925c996-0005",
+            "cc8570e99c06-0003",
+            "57b0b925c996-0003",
+            "57b0b925c996-0001"
+          ]
+        },
+        {
+          "id": "s02",
+          "type": "single-hop",
+          "question": "Who manages the Galle branch?",
+          "answer": "The Galle branch is managed by Shalini de Silva [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 3.04,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer accurately states that Shalini de Silva manages the Galle branch, which matches the reference and sources."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0004",
+            "53476d4cf1f6-0002",
+            "91cdde65e216-0002",
+            "53476d4cf1f6-0005",
+            "53476d4cf1f6-0003",
+            "57b0b925c996-0001"
+          ]
+        },
+        {
+          "id": "s03",
+          "type": "single-hop",
+          "question": "What time does the Kandy branch open on Saturday?",
+          "answer": "Hi! The Kandy branch is open from 9.00 AM to 7.00 PM on Saturdays [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 3.98,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer directly and accurately provides the opening time of the Kandy branch on Saturday, which is 9.00 AM, based on the sources."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0003",
+            "53476d4cf1f6-0005",
+            "53476d4cf1f6-0004",
+            "53476d4cf1f6-0002",
+            "91cdde65e216-0002",
+            "57b0b925c996-0001"
+          ]
+        },
+        {
+          "id": "s04",
+          "type": "single-hop",
+          "question": "What is the customer care hotline number?",
+          "answer": "Our customer care hotline number is 011 245 7788 [1][2]. It is available from Monday to Saturday, 8.00 AM - 8.00 PM [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.5,
+          "answer_correct": true,
+          "latency_s": 3.7,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer provides the correct hotline number directly addressing the question, perfectly matches the reference, and all claims are fully supported by the sources."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0006",
+            "08a7e782e29c-0000",
+            "53476d4cf1f6-0001",
+            "53476d4cf1f6-0000",
+            "91cdde65e216-0002",
+            "91cdde65e216-0000"
+          ]
+        },
+        {
+          "id": "s05",
+          "type": "single-hop",
+          "question": "Can I return an unopened product?",
+          "answer": "Yes! Unopened products can be returned within 7 days of purchase for a full refund, as long as you have the original invoice [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 3.18,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer is fully supported by the sources, directly addresses the question, and matches the reference answer completely."
+          },
+          "retrieved": [
+            "91cdde65e216-0003",
+            "91cdde65e216-0000",
+            "57b0b925c996-0000",
+            "08a7e782e29c-0000",
+            "57b0b925c996-0004",
+            "57b0b925c996-0001"
+          ]
+        },
+        {
+          "id": "s06",
+          "type": "single-hop",
+          "question": "Do you accept American Express?",
+          "answer": "Hello! No, we do not accept American Express cards [1]. We accept cash, Visa and Mastercard credit and debit cards, and bank transfers [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 2.75,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer directly and accurately addresses the question using facts completely supported by the sources, matching the reference answer."
+          },
+          "retrieved": [
+            "91cdde65e216-0005",
+            "91cdde65e216-0003",
+            "08a7e782e29c-0000",
+            "91cdde65e216-0001",
+            "57b0b925c996-0000",
+            "91cdde65e216-0000"
+          ]
+        },
+        {
+          "id": "s07",
+          "type": "single-hop",
+          "question": "Who founded Nilaveli Electronics?",
+          "answer": "Nilaveli Electronics was founded in 2009 by Ravindu Perera in Colombo [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 2.37,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer correctly states that Nilaveli Electronics was founded by Ravindu Perera in 2009, matching both the reference and the sources, and includes a citation."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0000",
+            "9eb63f8b9f50-0000",
+            "494c25031c8a-0000",
+            "57b0b925c996-0000",
+            "08a7e782e29c-0000",
+            "9eb63f8b9f50-0002"
+          ]
+        },
+        {
+          "id": "s08",
+          "type": "single-hop",
+          "question": "How many Nila Rewards points do I earn when I spend money?",
+          "answer": "As a Nila Rewards member, you earn 1 point for every Rs. 100 spent [1][2].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 3.16,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer is fully supported by the sources, directly answers the question, and completely matches the reference answer."
+          },
+          "retrieved": [
+            "08a7e782e29c-0001",
+            "08a7e782e29c-0000",
+            "494c25031c8a-0001",
+            "53476d4cf1f6-0000",
+            "57b0b925c996-0004",
+            "57b0b925c996-0001"
+          ]
+        },
+        {
+          "id": "s09",
+          "type": "single-hop",
+          "question": "How much does same-day delivery cost in Colombo?",
+          "answer": "Same-day delivery in Colombo city is available for orders placed before 12 noon for an extra Rs. 1,500 [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 3.19,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer completely and accurately provides the cost of same-day delivery in Colombo based on the sources, matching the reference answer."
+          },
+          "retrieved": [
+            "91cdde65e216-0004",
+            "57b0b925c996-0001",
+            "53476d4cf1f6-0005",
+            "91cdde65e216-0005",
+            "9eb63f8b9f50-0000",
+            "53476d4cf1f6-0000"
+          ]
+        },
+        {
+          "id": "s10",
+          "type": "single-hop",
+          "question": "When does the Year-End Sale end?",
+          "answer": "Hello! The Year-End Sale ends on 31 December 2026 [1]. Let me know if you need anything else!",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 24.96,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer accurately states the end date of the Year-End Sale as 31 December 2026, perfectly matching the reference answer and supported by the sources."
+          },
+          "retrieved": [
+            "494c25031c8a-0000",
+            "494c25031c8a-0001",
+            "494c25031c8a-0002",
+            "91cdde65e216-0003",
+            "57b0b925c996-0000",
+            "08a7e782e29c-0000"
+          ]
+        },
+        {
+          "id": "s11",
+          "type": "single-hop",
+          "question": "Do you sell Samsung or LG products?",
+          "answer": "No, we do not sell Samsung or LG products. Nilaveli Electronics sells only its own Nila brand products [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 6.19,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer directly addresses the question, is fully supported by the sources, and matches the reference answer."
+          },
+          "retrieved": [
+            "08a7e782e29c-0000",
+            "53476d4cf1f6-0000",
+            "9eb63f8b9f50-0000",
+            "494c25031c8a-0000",
+            "91cdde65e216-0003",
+            "57b0b925c996-0004"
+          ]
+        },
+        {
+          "id": "s12",
+          "type": "single-hop",
+          "question": "Who is the CEO of the company?",
+          "answer": "The Chief Executive Officer (CEO) of Nilaveli Electronics is Ishara Fernando [3].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 1.58,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer correctly identifies Ishara Fernando as the CEO, matching both the reference and the sources."
+          },
+          "retrieved": [
+            "9eb63f8b9f50-0002",
+            "53476d4cf1f6-0000",
+            "53476d4cf1f6-0001",
+            "08a7e782e29c-0000",
+            "9eb63f8b9f50-0001",
+            "08a7e782e29c-0001"
+          ]
+        },
+        {
+          "id": "m01",
+          "type": "multi-hop",
+          "question": "How long is the compressor warranty on the Nila AirCool 12000?",
+          "answer": "The Nila AirCool 12000 Inverter AC comes with the Gold Care warranty plan [4]. Gold Care covers parts and labour for 3 years, with a 10 year warranty on the inverter compressor of air conditioners [5].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.5,
+          "answer_correct": true,
+          "latency_s": 5.16,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer correctly identifies that the Nila AirCool 12000 has Gold Care, which includes a 10-year warranty on the inverter compressor, matching the reference and sources."
+          },
+          "retrieved": [
+            "91cdde65e216-0000",
+            "cc8570e99c06-0001",
+            "cc8570e99c06-0000",
+            "57b0b925c996-0001",
+            "91cdde65e216-0001",
+            "08a7e782e29c-0000"
+          ]
+        },
+        {
+          "id": "m02",
+          "type": "multi-hop",
+          "question": "How long are parts and labour covered on the Nila VisionMax 55 inch TV?",
+          "answer": "Parts and labour on the Nila VisionMax 55 inch TV are covered for 2 years under the Silver Care warranty plan [2][4].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 1.72,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer accurately states that parts and labour are covered for 2 years under the Silver Care warranty plan, which matches both the reference and the sources."
+          },
+          "retrieved": [
+            "cc8570e99c06-0007",
+            "91cdde65e216-0000",
+            "cc8570e99c06-0006",
+            "57b0b925c996-0004",
+            "91cdde65e216-0001",
+            "08a7e782e29c-0000"
+          ]
+        },
+        {
+          "id": "m03",
+          "type": "multi-hop",
+          "question": "Is the motor of the WashPro 8kg washer covered for 10 years?",
+          "answer": "Yes! The Nila WashPro 8kg Front Load Washer comes with the Gold Care warranty plan [4], which includes a 10-year warranty on the motor of washing machines [2].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 2.24,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer directly and accurately addresses the question, referencing both the Gold Care plan for the WashPro 8kg and the 10-year motor warranty, perfectly matching the reference and sources."
+          },
+          "retrieved": [
+            "cc8570e99c06-0004",
+            "91cdde65e216-0001",
+            "494c25031c8a-0001",
+            "57b0b925c996-0003",
+            "91cdde65e216-0000",
+            "ded6ec39bcc4-0003"
+          ]
+        },
+        {
+          "id": "m04",
+          "type": "multi-hop",
+          "question": "If my RiceMaster rice cooker breaks, will a technician come to my home?",
+          "answer": "Hello! The Nila RiceMaster 1.8L Rice Cooker comes with the Basic Care warranty plan [2]. Basic Care covers parts and labour for 1 year and requires you to bring the product to a branch for carry-in repairs, so a technician will not come to your home [5].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 3.15,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer accurately states that the RiceMaster has Basic Care which is carry-in only, meaning a technician will not come to the home, matching the reference and sources perfectly."
+          },
+          "retrieved": [
+            "cc8570e99c06-0009",
+            "57b0b925c996-0005",
+            "08a7e782e29c-0000",
+            "53476d4cf1f6-0000",
+            "91cdde65e216-0000",
+            "91cdde65e216-0003"
+          ]
+        },
+        {
+          "id": "m05",
+          "type": "multi-hop",
+          "question": "Which branches with a service centre are open on Sundays?",
+          "answer": "The branches with a service centre that are open on Sundays are:\n- *Colombo 03 Flagship Branch* (Sunday 10.00 AM - 6.00 PM) [2]\n- *Galle Branch* (Sunday 10.00 AM - 2.00 PM) [1]",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 1.33,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer correctly identifies both branches with service centres that are open on Sundays, matching the reference answer and supported by the sources."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0004",
+            "53476d4cf1f6-0002",
+            "53476d4cf1f6-0005",
+            "53476d4cf1f6-0003",
+            "91cdde65e216-0002",
+            "9eb63f8b9f50-0000"
+          ]
+        },
+        {
+          "id": "m06",
+          "type": "multi-hop",
+          "question": "Who manages the branch at 12 Wakwella Road?",
+          "answer": "The branch at 12 Wakwella Road (Galle Branch) is managed by Shalini de Silva [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 15.22,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer correctly identifies Shalini de Silva as the manager of the branch at 12 Wakwella Road, matching both the reference and the sources."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0004",
+            "53476d4cf1f6-0005",
+            "53476d4cf1f6-0002",
+            "53476d4cf1f6-0003",
+            "91cdde65e216-0002",
+            "57b0b925c996-0006"
+          ]
+        },
+        {
+          "id": "m07",
+          "type": "multi-hop",
+          "question": "Can I pay for the Nila AirCool 12000 Inverter AC in 0% instalments?",
+          "answer": "Yes! You can get a 0% interest instalment plan for 6 or 12 months using Visa and Mastercard credit cards for purchases above Rs. 75,000 [6].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 1.46,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer directly addresses the question, is fully supported by the sources, and matches the reference answer in facts."
+          },
+          "retrieved": [
+            "57b0b925c996-0001",
+            "cc8570e99c06-0000",
+            "cc8570e99c06-0001",
+            "494c25031c8a-0001",
+            "08a7e782e29c-0000",
+            "91cdde65e216-0005"
+          ]
+        },
+        {
+          "id": "m08",
+          "type": "multi-hop",
+          "question": "Is delivery free if I order only a RiceMaster rice cooker to Colombo?",
+          "answer": "Hello! Delivery is free within the Colombo and Gampaha districts for orders above Rs. 50,000 [1]. Since the Nila RiceMaster 1.8L Rice Cooker costs Rs. 12,900 [3], delivery will cost Rs. 2,500 if you are in the Western Province [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 18.49,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer is completely faithful to the sources, directly answers the question, and matches all facts in the reference answer."
+          },
+          "retrieved": [
+            "91cdde65e216-0004",
+            "cc8570e99c06-0009",
+            "57b0b925c996-0005",
+            "08a7e782e29c-0000",
+            "53476d4cf1f6-0000",
+            "53476d4cf1f6-0005"
+          ]
+        },
+        {
+          "id": "m09",
+          "type": "multi-hop",
+          "question": "What is the price of the WashPro 8kg washer during the Year-End Sale?",
+          "answer": "Hello! The Nila WashPro 8kg Front Load Washer has a regular price of Rs. 139,900 [2] and is available at 15% off during the Year-End Sale [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 2.11,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 0.8,
+            "correctness": 0.5,
+            "reason": "The answer provides the regular price and the discount percentage from the sources, but fails to calculate the final sale price as requested by the reference answer."
+          },
+          "retrieved": [
+            "494c25031c8a-0001",
+            "57b0b925c996-0003",
+            "cc8570e99c06-0004",
+            "494c25031c8a-0000",
+            "57b0b925c996-0001",
+            "cc8570e99c06-0005"
+          ]
+        },
+        {
+          "id": "m10",
+          "type": "multi-hop",
+          "question": "Can I see the AirCool 18000 at the Kurunegala branch?",
+          "answer": "Hello! The Kurunegala branch is a compact showroom and does not stock air conditioners, but you can order the Nila AirCool 18000 there for home delivery [1][3].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 1.97,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer accurately states that the Kurunegala branch does not stock air conditioners, but you can order it there for home delivery, matching both the reference and the sources."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0005",
+            "cc8570e99c06-0001",
+            "57b0b925c996-0001",
+            "cc8570e99c06-0000",
+            "91cdde65e216-0002",
+            "53476d4cf1f6-0003"
+          ]
+        },
+        {
+          "id": "m11",
+          "type": "multi-hop",
+          "question": "If I hand in a faulty TV at the Kandy branch, how long will the repair take?",
+          "answer": "Hello! If you hand in a product at the Kandy branch, it is sent to our Colombo 03 service centre, and repairs take 7 to 10 working days [1].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 15.6,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer is completely faithful to the sources, directly answers the question, and matches the reference answer regarding the repair time for items handed in at the Kandy branch."
+          },
+          "retrieved": [
+            "91cdde65e216-0002",
+            "53476d4cf1f6-0003",
+            "91cdde65e216-0003",
+            "57b0b925c996-0004",
+            "57b0b925c996-0001",
+            "08a7e782e29c-0000"
+          ]
+        },
+        {
+          "id": "m12",
+          "type": "multi-hop",
+          "question": "What free gift do I get if I buy a Nila AirCool during the sale, and how much is that gift normally?",
+          "answer": "I'm sorry, I don't have information on the normal price of the free gift. Would you like me to connect you with a team member?",
+          "answerable": false,
+          "unanswerable": false,
+          "context_recall": 0.5,
+          "full_context_hit": false,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": false,
+          "latency_s": 1.58,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 0.5,
+            "correctness": 0.0,
+            "reason": "The model correctly identified the free gift from the sources but failed to provide its normal price, which is missing from the provided sources, and incorrectly claimed it didn't have information on the normal price while the reference provided it. However, since the sources lack the price, the faithfulness is high regarding what is in text, but correctness is 0 compared to the reference."
+          },
+          "retrieved": [
+            "494c25031c8a-0001",
+            "57b0b925c996-0001",
+            "cc8570e99c06-0001",
+            "08a7e782e29c-0000",
+            "cc8570e99c06-0000",
+            "494c25031c8a-0000"
+          ]
+        },
+        {
+          "id": "m13",
+          "type": "multi-hop",
+          "question": "Who leads the service centres, and where are they?",
+          "answer": "Mahesh Ratnayake is the Head of After-Sales Service and leads both service centres [1]. Our two service centres are located at the Colombo 03 Flagship Branch (214 Galle Road, Kollupitiya, Colombo 03) and the Galle Branch (12 Wakwella Road, Galle) [2][4][5].",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 1.44,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer accurately identifies Mahesh Ratnayake as the leader of the service centres and correctly specifies their locations at the Colombo 03 Flagship Branch and the Galle Branch, matching the reference and sources completely."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0001",
+            "91cdde65e216-0002",
+            "9eb63f8b9f50-0000",
+            "53476d4cf1f6-0004",
+            "53476d4cf1f6-0002",
+            "9eb63f8b9f50-0001"
+          ]
+        },
+        {
+          "id": "s13",
+          "type": "single-hop",
+          "question": "Do you sell iPhones?",
+          "answer": "Hello! No, Nilaveli Electronics sells only its own Nila brand products [1]. We do not sell other brands such as Apple or iPhones [1]. Let me know if you need help with anything else!",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 2.11,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer directly addresses the question using supported facts from the sources, matching the reference answer accurately."
+          },
+          "retrieved": [
+            "08a7e782e29c-0000",
+            "53476d4cf1f6-0000",
+            "494c25031c8a-0002",
+            "08a7e782e29c-0001",
+            "494c25031c8a-0000",
+            "9eb63f8b9f50-0000"
+          ]
+        },
+        {
+          "id": "u02",
+          "type": "unanswerable",
+          "question": "What is the warranty on the Nila SmartWatch?",
+          "answer": "I'm sorry, I don't have that information about a Nila SmartWatch. Would you like me to connect you with a team member?",
+          "answerable": false,
+          "unanswerable": true,
+          "context_recall": null,
+          "full_context_hit": null,
+          "context_precision": null,
+          "answer_correct": true,
+          "latency_s": 1.59,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer correctly states that there is no information about a Nila SmartWatch, which matches the reference."
+          },
+          "retrieved": [
+            "57b0b925c996-0004",
+            "91cdde65e216-0000",
+            "08a7e782e29c-0000",
+            "57b0b925c996-0005",
+            "57b0b925c996-0001",
+            "57b0b925c996-0003"
+          ]
+        },
+        {
+          "id": "u03",
+          "type": "unanswerable",
+          "question": "What is the CEO's salary?",
+          "answer": "I'm sorry, I don't have that information. Would you like me to connect you with a team member?",
+          "answerable": false,
+          "unanswerable": true,
+          "context_recall": null,
+          "full_context_hit": null,
+          "context_precision": null,
+          "answer_correct": true,
+          "latency_s": 1.97,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer correctly states that the information is not available, matching the reference answer."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0001",
+            "08a7e782e29c-0001",
+            "91cdde65e216-0000",
+            "ded6ec39bcc4-0004",
+            "9eb63f8b9f50-0000",
+            "9eb63f8b9f50-0001"
+          ]
+        },
+        {
+          "id": "u04",
+          "type": "unanswerable",
+          "question": "Is there a student discount?",
+          "answer": "I'm sorry, I don't have information about student discounts. Would you like me to connect you with a team member?",
+          "answerable": false,
+          "unanswerable": true,
+          "context_recall": null,
+          "full_context_hit": null,
+          "context_precision": null,
+          "answer_correct": true,
+          "latency_s": 1.46,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer correctly states that there is no information about student discounts, which aligns with the reference answer."
+          },
+          "retrieved": [
+            "494c25031c8a-0001",
+            "494c25031c8a-0000",
+            "08a7e782e29c-0000",
+            "57b0b925c996-0001",
+            "91cdde65e216-0001",
+            "57b0b925c996-0004"
+          ]
+        },
+        {
+          "id": "u05",
+          "type": "unanswerable",
+          "question": "When will the Jaffna branch open?",
+          "answer": "I am sorry, but I don't have that information. Would you like me to connect you with a team member?",
+          "answerable": false,
+          "unanswerable": true,
+          "context_recall": null,
+          "full_context_hit": null,
+          "context_precision": null,
+          "answer_correct": true,
+          "latency_s": 1.73,
+          "judge": {
+            "faithfulness": 1.0,
+            "answer_relevance": 1.0,
+            "correctness": 1.0,
+            "reason": "The answer correctly states that the information is not available in the sources, matching the reference."
+          },
+          "retrieved": [
+            "53476d4cf1f6-0002",
+            "53476d4cf1f6-0004",
+            "53476d4cf1f6-0005",
+            "53476d4cf1f6-0003",
+            "91cdde65e216-0002",
+            "57b0b925c996-0006"
+          ]
+        }
+      ]
+    }
+  },
+  "llm_usage": {
+    "input_tokens": 164369,
+    "output_tokens": 10751,
+    "calls": 150
+  }
+}

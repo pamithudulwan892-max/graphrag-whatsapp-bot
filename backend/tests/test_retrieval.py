@@ -61,3 +61,13 @@ def test_heuristic_extractor_links_values_to_names():
     names = {e.name for e in ex.entities}
     assert "Galle Branch" in names and "10.00 AM - 2.00 PM" in names
     assert any({r.source, r.target} == {"Galle Branch", "10.00 AM - 2.00 PM"} for r in ex.relations)
+
+
+def test_graph_retrieval_does_not_need_scipy(tmp_path, monkeypatch):
+    # networkx.pagerank imports SciPy, which is not installed on the server.
+    import sys
+
+    monkeypatch.setitem(sys.modules, "scipy", None)
+    store = _store(tmp_path)
+    res = GraphRetriever(store, HashEmbedder(), hops=2).retrieve("Gold Care warranty for NAC-12I", None)
+    assert res.facts

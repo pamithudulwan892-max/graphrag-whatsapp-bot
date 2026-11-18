@@ -58,6 +58,8 @@ async def lifespan(app: FastAPI):
                     _ingest_file(services, path.name, path.read_bytes())
 
         threading.Thread(target=seed, daemon=True).start()
+    # Load the models and pre-compute entity vectors now, so the first customer does not wait.
+    threading.Thread(target=services.warm_up, daemon=True).start()
     yield
 
 

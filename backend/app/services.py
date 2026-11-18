@@ -66,6 +66,18 @@ class Services:
         self.limiter = RateLimiter(settings.rate_limit_per_minute)
         self.ingest_lock = threading.Lock()
 
+    def warm_up(self):
+        t0 = time.time()
+        try:
+            qvec = self.embedder.embed_query("opening hours")
+            self.graph.node_vectors(self.embedder)
+            if self.reranker:
+                self.reranker.score("opening hours", ["We are open from 9 to 5."])
+            self.retriever.graph.retrieve("opening hours", qvec)
+            log.info("Warm-up finished in %.1fs", time.time() - t0)
+        except Exception:
+            log.exception("Warm-up failed")
+
     # ----------------------------------------------------------------------
     def ask(self, question: str, history: list[dict] | None = None, mode: str = "graphrag") -> dict:
         """Retrieval + answer without touching conversation state (used by eval and test chat)."""

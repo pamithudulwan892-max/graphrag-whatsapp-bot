@@ -8,12 +8,12 @@ I built this to learn how retrieval-augmented generation (RAG) works in a realis
 
 - **Document ingestion.** Upload PDF, DOCX, TXT, Markdown or HTML files, add a web page by URL, or paste FAQ text. Tables in Word files are kept as readable rows, and every chunk remembers its heading and page number.
 - **Knowledge graph.** An LLM extracts entities (products, prices, warranty plans, branches, opening hours, people) and relationships between them. Entities with the same name from different documents are merged, so facts in different files get connected.
-- **Hybrid retrieval.** Each question goes through three searches: dense vector search (BGE embeddings), BM25 keyword search, and a graph walk from the entities named in the question. The results are merged with Reciprocal Rank Fusion and re-ranked with a cross-encoder.
+- **Hybrid retrieval.** Each question goes through three searches: dense vector search (BGE embeddings), BM25 keyword search, and a graph walk from the entities named in the question. The results are merged with Reciprocal Rank Fusion and re-ranked with a cross-encoder, whose score is blended with the fused rank.
 - **Grounded answers.** The LLM only sees the numbered sources and graph facts, has to cite them, and returns structured JSON that says whether the question was answerable. Unanswerable questions are logged for the company to fill in.
 - **WhatsApp.** Works with the Twilio WhatsApp sandbox or the official Meta WhatsApp Cloud API. Webhook signatures are verified, duplicate deliveries are ignored, replies are sent in the background, and each phone number has its own conversation memory.
 - **Human handover.** If a customer asks for a person, the bot stops replying and the conversation shows up in the dashboard, where an agent can reply and later hand it back.
 - **Admin dashboard.** Manage documents, explore the knowledge graph, test-chat with a view of exactly which chunks and graph facts were used, read conversation logs, review unanswered questions, and see evaluation results.
-- **Evaluation.** 30 test questions (single-hop, multi-hop and unanswerable) comparing vector-only RAG, hybrid search and GraphRAG.
+- **Evaluation.** 30 test questions (single-hop, multi-hop and unanswerable) comparing vector-only RAG, hybrid search and GraphRAG. GraphRAG answered 96% correctly vs 92% for vector-only, with the gain on multi-hop questions.
 
 ## Architecture
 
@@ -58,9 +58,9 @@ Take "How long is the compressor warranty on the Nila AirCool 12000?". The produ
 | Part | Choice | Why |
 |---|---|---|
 | API | Python, FastAPI | Async webhooks, background tasks, automatic API docs at `/docs` |
-| LLM | Google Gemini 2.5 Flash (free tier) or Anthropic Claude (`claude-opus-5-5`) | Gemini's free tier means the project runs at no cost. Claude is supported for higher quality. Both use JSON-schema structured output, so the code never parses free text |
+| LLM | Google Gemini (`gemini-3.5-flash-lite`, free tier) or Anthropic Claude (`claude-opus-5-5`) | Gemini's free tier means the project runs at no cost. Claude is supported for higher quality. Both use JSON-schema structured output, so the code never parses free text |
 | Embeddings | FastEmbed with `BAAI/bge-small-en-v1.5` | Runs on CPU through ONNX, no API key, small enough for free hosting |
-| Re-ranker | `ms-marco-MiniLM-L-6-v2` cross-encoder | Re-orders the fused candidates by actually reading question and chunk together |
+| Re-ranker | `ms-marco-MiniLM-L-6-v2` cross-encoder | Reads question and chunk together. Its score is blended 50/50 with the fused rank, because on its own it scored some correct chunks near zero |
 | Vector index | NumPy, saved to disk | One company's documents are thousands of chunks at most, where exact search takes about a millisecond. A vector database would add operations work without better results. The store has a small interface, so it can be swapped for Qdrant or pgvector |
 | Graph store | NetworkX, saved as JSON | No extra server to run, and it has Personalized PageRank built in. Neo4j would be the next step for very large graphs |
 | Database | SQLite | Documents, chunks, conversations, unanswered questions and the outbox, with no setup |
@@ -71,20 +71,48 @@ I did not use LangChain or LlamaIndex. The pipeline is small enough that writing
 
 ## Evaluation
 
-The evaluation builds a fresh index from `sample_data/` and asks 30 questions with each retrieval mode: 12 single-hop questions, 13 multi-hop questions whose answers need facts from two places, and 5 questions whose answers are not in the documents.
+The evaluation builds a fresh index from `sample_data/` and asks 30 questions with each retrieval mode: 13 single-hop questions, 13 multi-hop questions whose answers need facts from two places, and 4 questions whose answers are not in the documents.
 
 - **Context recall**: share of the facts needed for the answer that were in the retrieved chunks.
 - **Answer accuracy**: the answer contains every required fact (a strict keyword check).
 - **Refusal accuracy**: unanswerable questions correctly declined.
 - **Faithfulness, answer relevance, correctness**: RAGAS-style scores from an LLM judge (0 to 1).
 
-EVAL_RESULTS_PLACEHOLDER
+Results with Gemini (`gemini-3.5-flash-lite`) answering and building the graph, top 6 chunks per question (full table in `eval/results/llm.md`):
+
+| Metric | Vector only | Hybrid (vector + BM25 + re-ranker) | GraphRAG (hybrid + graph) |
+|---|---|---|---|
+| Context recall | 96.2% | 96.2% | **98.1%** |
+| All needed facts retrieved | 92.3% | 92.3% | **96.2%** |
+| Answer accuracy (26 answerable) | 92.3% | 92.3% | **96.2%** |
+| Multi-hop answer accuracy (13) | 84.6% | 84.6% | **92.3%** |
+| Single-hop answer accuracy (13) | 100% | 100% | 100% |
+| Correctly says "I don't know" (4) | 100% | 100% | 100% |
+| Faithfulness (LLM judge) | 1.00 | - | 1.00 |
+| Answer relevance (LLM judge) | 0.99 | - | 0.98 |
+| Correctness (LLM judge) | 0.94 | - | 0.95 |
+| Median latency | 1.5 s | 3.9 s | 2.6 s |
+
+What I take from this:
+
+- GraphRAG helped where I expected it to, on multi-hop questions. For example, "Can I pay for the AirCool 12000 in instalments?" needs the price from the catalog and the Rs. 75,000 minimum from the payment policy. Vector search did not retrieve the policy chunk, so that answer said it did not know; the graph linked them.
+- The gain is small: one more correct question out of 26. With a test set this size, that is a direction, not proof.
+- No mode made anything up. On the question all three missed (the normal price of the free fan in the sale), the bot said it did not have that information instead of guessing.
+- In offline mode (no LLM: heuristic graph and extractive answers, `eval/results/offline.md`), retrieval shows the same pattern (96.2% vs 92.3% of questions with all facts retrieved), but answer accuracy is only about 50%, because copying sentences is not the same as answering.
+
+Things that did not work, and what I changed:
+
+- My first run showed GraphRAG slightly *worse* than vector search. Looking at the failures, the cross-encoder re-ranker was scoring some correct chunks near zero and pushing them out. Blending its score 50/50 with the fused rank fixed this for both hybrid and GraphRAG.
+- I tried reserving context slots for "bridge" chunks (evidence about entities one hop away). It pushed out good chunks and lowered recall, so I removed it.
+- One of my "unanswerable" questions ("Do you sell iPhones?") was actually answered by the FAQ (only Nila products are sold), so I relabelled it.
+- Because I made these changes after seeing results on the same 30 questions, the final numbers are probably a little optimistic. A fresh, larger question set would be the honest next test.
 
 Run it yourself:
 
 ```bash
 python eval/run_eval.py            # uses the LLM from .env
 python eval/run_eval.py --offline  # no API calls: heuristic graph and extractive answers
+python eval/run_eval.py --reuse-index --retrieval-only   # re-test retrieval on the existing index, no API calls
 ```
 
 ## Run it locally
@@ -144,10 +172,14 @@ For local testing, `ngrok http 8000` gives you a public HTTPS URL.
 
 ## Free deployment
 
-- **Backend on Hugging Face Spaces.** Create a Space with the Docker SDK and push this repository to it. The `Dockerfile` builds the dashboard, downloads the models and serves everything on port 7860. Add the values from `.env` as Space secrets, and set `SEED_SAMPLE_DOCS=true` so the demo documents are loaded again whenever the free Space restarts (free Spaces do not keep files between restarts). The Space URL is the public webhook address for WhatsApp.
-- **Dashboard on Vercel (optional).** The backend already serves the dashboard, but it can also be hosted on Vercel: import the repository, set the root directory to `dashboard`, and set `VITE_API_URL` to the Space URL. Add the Vercel URL to `CORS_ORIGINS` on the backend.
+The live demo runs on **Render's free tier**: https://graphrag-whatsapp-bot.onrender.com
 
-Vercel alone cannot run the backend well: its functions are short-lived and stateless, so they cannot keep the indexes, the graph and the chat memory, or load the embedding model.
+- `render.yaml` is a Render Blueprint. In Render, choose *New, Blueprint*, give it this repository, and paste your `GEMINI_API_KEY` when asked. Render builds the `Dockerfile` (dashboard, API and models in one image) and generates a random `ADMIN_API_KEY`, which you can read under the service's *Environment* tab.
+- Free Render services sleep after 15 minutes without traffic (the first request after that takes about a minute) and lose their files on restart. To handle this, the demo restores a prebuilt index of the sample documents (`sample_data/prebuilt_index/`, built by `eval/run_eval.py`) on startup instead of calling the LLM again. Documents you upload on the free tier disappear on restart; a paid disk or an external database would fix that.
+- The re-ranker is switched off on Render (`USE_RERANKER=false`) to stay inside the free 512 MB of memory.
+- **Dashboard on Vercel (optional).** The backend already serves the dashboard, but it can also be hosted on Vercel: import the repository, set the root directory to `dashboard`, and set `VITE_API_URL` to the Render URL. Add the Vercel URL to `CORS_ORIGINS` on the backend.
+
+Vercel alone cannot run the backend: its functions are short-lived and stateless, so they cannot keep the indexes, the graph and the chat memory, or load the embedding model. Hugging Face Spaces was my first choice, but Docker Spaces now need a paid plan.
 
 ## Project layout
 
@@ -170,6 +202,6 @@ scripts/         sample document generator, WhatsApp simulator
 ## Limitations
 
 - The evaluation set is small (30 questions) and written by me against documents I also wrote, so the numbers show the direction of the differences, not exact production accuracy. When the same LLM answers and judges, the judge scores can be optimistic.
-- The free Gemini tier allows only a few requests per minute, so building the graph for many documents is slow, and a busy WhatsApp number would need a paid key.
+- The free Gemini tier allows only a few requests per minute and a limited number per day (`gemini-2.5-flash` ran out after about 20 requests in a day, which is why the default is `gemini-3.5-flash-lite`). Building the graph for many documents is slow, and a busy WhatsApp number would need a paid key.
 - The bot reads text messages only. Voice notes and images get a polite reply asking for text.
 - Free Hugging Face Spaces lose uploaded documents on restart. A persistent disk or an external database would fix this.

@@ -1,32 +1,33 @@
 {
-  "timestamp": "2026-11-18 06:32 UTC",
+  "timestamp": "2026-11-18 07:42 UTC",
   "n_questions": 30,
   "llm_model": null,
   "extractor": "heuristic",
+  "top_k": 6,
   "modes": {
     "vector": {
-      "context_recall": 0.98,
-      "full_context_hit": 0.96,
-      "context_precision": 0.253,
-      "answer_accuracy": 0.44,
-      "refusal_accuracy": 0.6,
+      "context_recall": 0.962,
+      "full_context_hit": 0.923,
+      "context_precision": 0.237,
+      "answer_accuracy": 0.462,
+      "refusal_accuracy": 0.5,
       "false_refusals": 3,
-      "latency_s_median": 0.05,
+      "latency_s_median": 0.04,
       "by_type": {
         "multi-hop": {
           "n": 13,
-          "context_recall": 0.962,
-          "accuracy": 0.231
+          "context_recall": 0.923,
+          "accuracy": 0.308
         },
         "single-hop": {
-          "n": 12,
+          "n": 13,
           "context_recall": 1.0,
-          "accuracy": 0.667
+          "accuracy": 0.615
         },
         "unanswerable": {
-          "n": 5,
+          "n": 4,
           "context_recall": null,
-          "accuracy": 0.6
+          "accuracy": 0.5
         }
       },
       "rows": [
@@ -34,7 +35,7 @@
           "id": "s01",
           "type": "single-hop",
           "question": "What is the price of the Nila FrostFree 340L refrigerator?",
-          "answer": "Here's what I found: Product: Nila FrostFree 340L Refrigerator; Model: NFR-340; Price: Rs. 154,990; Warranty plan: Silver Care; Available at: All branches. [1] Product: Nila DoubleDoor 250L Refrigerator; Model: NFR-250; Price: Rs. 112,500; Warranty plan: Silver Care; Available at: All branches. [1] Product: Nila PowerBlend 1200W Blender; Model: NBL-12; Price: Rs. 18,450; Warranty plan: Basic Care; Available at: All branches. [2]",
+          "answer": "Here's what I found: Product: Nila FrostFree 340L Refrigerator; Model: NFR-340; Price: Rs. 154,990; Warranty plan: Silver Care; Available at: All branches. [1] Nila FrostFree 340L Refrigerator [2] Product: Nila DoubleDoor 250L Refrigerator; Model: NFR-250; Price: Rs. 112,500; Warranty plan: Silver Care; Available at: All branches. [1]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
@@ -44,12 +45,12 @@
           "latency_s": 0.3,
           "judge": null,
           "retrieved": [
-            "bd2e38b6135c-0002",
-            "bd2e38b6135c-0005",
-            "bd2e38b6135c-0004",
-            "bd2e38b6135c-0001",
-            "bd2e38b6135c-0003",
-            "b9fb871d04ff-0001"
+            "98c5cbe973fc-0002",
+            "17f9228198c5-0002",
+            "98c5cbe973fc-0005",
+            "17f9228198c5-0003",
+            "98c5cbe973fc-0004",
+            "98c5cbe973fc-0001"
           ]
         },
         {
@@ -63,15 +64,15 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": false,
-          "latency_s": 0.04,
+          "latency_s": 0.02,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0004",
-            "d8a6eb1ed89d-0001",
-            "d8a6eb1ed89d-0002",
-            "d8a6eb1ed89d-0005",
-            "3e984c0fbfd7-0002",
-            "d8a6eb1ed89d-0003"
+            "dec0632ecb0c-0004",
+            "dec0632ecb0c-0001",
+            "dec0632ecb0c-0002",
+            "dec0632ecb0c-0005",
+            "aa46d9d60c54-0002",
+            "dec0632ecb0c-0003"
           ]
         },
         {
@@ -88,12 +89,12 @@
           "latency_s": 0.05,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0003",
-            "d8a6eb1ed89d-0004",
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0002",
-            "3e984c0fbfd7-0002",
-            "b9fb871d04ff-0000"
+            "dec0632ecb0c-0003",
+            "dec0632ecb0c-0004",
+            "dec0632ecb0c-0005",
+            "dec0632ecb0c-0002",
+            "aa46d9d60c54-0002",
+            "ed6eb7559762-0000"
           ]
         },
         {
@@ -110,12 +111,12 @@
           "latency_s": 0.02,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0006",
-            "1fe81fa56402-0000",
-            "3e984c0fbfd7-0002",
-            "3e984c0fbfd7-0001",
-            "d8a6eb1ed89d-0001",
-            "3e984c0fbfd7-0000"
+            "dec0632ecb0c-0006",
+            "928e7bbc7427-0000",
+            "aa46d9d60c54-0002",
+            "aa46d9d60c54-0001",
+            "dec0632ecb0c-0001",
+            "aa46d9d60c54-0000"
           ]
         },
         {
@@ -129,15 +130,15 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": true,
-          "latency_s": 0.03,
+          "latency_s": 0.02,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0003",
-            "1fe81fa56402-0000",
-            "b9fb871d04ff-0002",
-            "bd2e38b6135c-0000",
-            "1fe81fa56402-0001",
-            "3e984c0fbfd7-0000"
+            "aa46d9d60c54-0003",
+            "928e7bbc7427-0000",
+            "ed6eb7559762-0002",
+            "98c5cbe973fc-0000",
+            "928e7bbc7427-0001",
+            "aa46d9d60c54-0000"
           ]
         },
         {
@@ -154,34 +155,34 @@
           "latency_s": 0.06,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0005",
-            "b9fb871d04ff-0002",
-            "1fe81fa56402-0001",
-            "1fe81fa56402-0000",
-            "3e984c0fbfd7-0003",
-            "bd2e38b6135c-0006"
+            "aa46d9d60c54-0005",
+            "ed6eb7559762-0002",
+            "928e7bbc7427-0001",
+            "928e7bbc7427-0000",
+            "aa46d9d60c54-0003",
+            "98c5cbe973fc-0006"
           ]
         },
         {
           "id": "s07",
           "type": "single-hop",
           "question": "Who founded Nilaveli Electronics?",
-          "answer": "Here's what I found: Nilaveli Electronics (Pvt) Ltd is a home appliance and electronics retailer in Sri Lanka. [1] The Nilaveli Electronics Year-End Sale runs from 1 December 2026 to 31 December 2026 at all branches. [2] A: No. Nilaveli Electronics sells only its own Nila brand products. [3]",
+          "answer": "Here's what I found: Nilaveli Electronics (Pvt) Ltd is a home appliance and electronics retailer in Sri Lanka. [1] Working at Nilaveli Electronics [2] Nilaveli Electronics employs about 140 people across its branches, service centres and head office in Colombo. [2]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": false,
-          "latency_s": 0.03,
+          "latency_s": 0.06,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0000",
-            "b9fb871d04ff-0000",
-            "1fe81fa56402-0000",
-            "bd2e38b6135c-0000",
-            "d8a6eb1ed89d-0006",
-            "bd2e38b6135c-0005"
+            "dec0632ecb0c-0000",
+            "a499db76c50e-0000",
+            "ed6eb7559762-0000",
+            "928e7bbc7427-0000",
+            "98c5cbe973fc-0000",
+            "dec0632ecb0c-0006"
           ]
         },
         {
@@ -195,15 +196,15 @@
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
           "answer_correct": true,
-          "latency_s": 0.05,
+          "latency_s": 0.04,
           "judge": null,
           "retrieved": [
-            "1fe81fa56402-0001",
-            "1fe81fa56402-0000",
-            "3e984c0fbfd7-0000",
-            "b9fb871d04ff-0001",
-            "bd2e38b6135c-0005",
-            "bd2e38b6135c-0004"
+            "928e7bbc7427-0001",
+            "928e7bbc7427-0000",
+            "aa46d9d60c54-0000",
+            "ed6eb7559762-0001",
+            "98c5cbe973fc-0005",
+            "98c5cbe973fc-0004"
           ]
         },
         {
@@ -217,15 +218,15 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": true,
-          "latency_s": 0.06,
+          "latency_s": 0.03,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0004",
-            "3e984c0fbfd7-0002",
-            "d8a6eb1ed89d-0002",
-            "bd2e38b6135c-0000",
-            "bd2e38b6135c-0004",
-            "bd2e38b6135c-0001"
+            "aa46d9d60c54-0004",
+            "aa46d9d60c54-0002",
+            "dec0632ecb0c-0002",
+            "98c5cbe973fc-0000",
+            "98c5cbe973fc-0004",
+            "98c5cbe973fc-0001"
           ]
         },
         {
@@ -239,15 +240,15 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": true,
-          "latency_s": 0.02,
+          "latency_s": 0.06,
           "judge": null,
           "retrieved": [
-            "b9fb871d04ff-0000",
-            "b9fb871d04ff-0002",
-            "bd2e38b6135c-0000",
-            "3e984c0fbfd7-0003",
-            "3e984c0fbfd7-0005",
-            "3e984c0fbfd7-0001"
+            "ed6eb7559762-0000",
+            "ed6eb7559762-0002",
+            "98c5cbe973fc-0000",
+            "aa46d9d60c54-0003",
+            "aa46d9d60c54-0005",
+            "aa46d9d60c54-0001"
           ]
         },
         {
@@ -261,15 +262,15 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": true,
-          "latency_s": 0.1,
+          "latency_s": 0.12,
           "judge": null,
           "retrieved": [
-            "1fe81fa56402-0000",
-            "bd2e38b6135c-0000",
-            "d8a6eb1ed89d-0000",
-            "b9fb871d04ff-0000",
-            "bd2e38b6135c-0004",
-            "b9fb871d04ff-0002"
+            "928e7bbc7427-0000",
+            "98c5cbe973fc-0000",
+            "dec0632ecb0c-0000",
+            "ed6eb7559762-0000",
+            "a499db76c50e-0000",
+            "98c5cbe973fc-0004"
           ]
         },
         {
@@ -283,81 +284,81 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": false,
-          "latency_s": 0.05,
+          "latency_s": 0.04,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0001",
-            "d8a6eb1ed89d-0000",
-            "b9fb871d04ff-0000",
-            "1fe81fa56402-0000",
-            "d8a6eb1ed89d-0006",
-            "1fe81fa56402-0001"
+            "dec0632ecb0c-0001",
+            "a499db76c50e-0002",
+            "dec0632ecb0c-0000",
+            "ed6eb7559762-0000",
+            "a499db76c50e-0000",
+            "928e7bbc7427-0000"
           ]
         },
         {
           "id": "m01",
           "type": "multi-hop",
           "question": "How long is the compressor warranty on the Nila AirCool 12000?",
-          "answer": "Here's what I found: Product: Nila AirCool 12000 Inverter AC; Model: NAC-12I; Price: Rs. 189,900; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [1] Product: Nila AirCool 18000 Inverter AC; Model: NAC-18I; Price: Rs. 264,500; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [1] Every Nila product comes with one of three warranty plans: Basic Care, Silver Care or Gold Care. [2]",
+          "answer": "Here's what I found: Product: Nila AirCool 12000 Inverter AC; Model: NAC-12I; Price: Rs. 189,900; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [2] Nila AirCool 12000 Inverter AC [1] The Nila AirCool 12000 is a 12,000 BTU split air conditioner suitable for rooms up to 18 square metres. [1]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
-          "context_precision": 0.5,
+          "context_precision": 0.3333333333333333,
           "answer_correct": false,
           "latency_s": 0.06,
           "judge": null,
           "retrieved": [
-            "bd2e38b6135c-0001",
-            "3e984c0fbfd7-0000",
-            "bd2e38b6135c-0002",
-            "bd2e38b6135c-0005",
-            "3e984c0fbfd7-0001",
-            "b9fb871d04ff-0001"
+            "17f9228198c5-0000",
+            "98c5cbe973fc-0001",
+            "17f9228198c5-0001",
+            "aa46d9d60c54-0000",
+            "98c5cbe973fc-0002",
+            "98c5cbe973fc-0005"
           ]
         },
         {
           "id": "m02",
           "type": "multi-hop",
           "question": "How long are parts and labour covered on the Nila VisionMax 55 inch TV?",
-          "answer": "Here's what I found: Product: Nila VisionMax 55 inch 4K Smart TV; Model: NTV-55U; Price: Rs. 229,000; Warranty plan: Silver Care; Available at: Colombo 03, Kandy, Galle. [1] Product: Nila VisionMax 43 inch Full HD Smart TV; Model: NTV-43F; Price: Rs. 129,500; Warranty plan: Basic Care; Available at: All branches. [1] Basic Care covers parts and labour for 1 year. [2]",
+          "answer": "Here's what I found: Nila VisionMax 55 inch 4K Smart TV [1] Product: Nila VisionMax 55 inch 4K Smart TV; Model: NTV-55U; Price: Rs. 229,000; Warranty plan: Silver Care; Available at: Colombo 03, Kandy, Galle. [2] Product: Nila VisionMax 43 inch Full HD Smart TV; Model: NTV-43F; Price: Rs. 129,500; Warranty plan: Basic Care; Available at: All branches. [2]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
           "answer_correct": false,
-          "latency_s": 0.04,
+          "latency_s": 0.03,
           "judge": null,
           "retrieved": [
-            "bd2e38b6135c-0004",
-            "3e984c0fbfd7-0000",
-            "bd2e38b6135c-0005",
-            "1fe81fa56402-0000",
-            "bd2e38b6135c-0002",
-            "bd2e38b6135c-0003"
+            "17f9228198c5-0006",
+            "98c5cbe973fc-0004",
+            "17f9228198c5-0007",
+            "aa46d9d60c54-0000",
+            "98c5cbe973fc-0005",
+            "928e7bbc7427-0000"
           ]
         },
         {
           "id": "m03",
           "type": "multi-hop",
           "question": "Is the motor of the WashPro 8kg washer covered for 10 years?",
-          "answer": "Sorry, I don't have that information in our documents. Would you like me to connect you with a team member? Reply *human* and someone will get back to you.",
-          "answerable": false,
+          "answer": "Here's what I found: Nila WashPro 8kg Front Load Washer [1] Product: Nila WashPro 8kg Front Load Washer; Model: NWM-8F; Price: Rs. 139,900; Warranty plan: Gold Care; Available at: All branches. [2] Gold Care covers parts and labour for 3 years, with a 10 year warranty on the inverter compressor of air conditioners and on the motor of washing machines. [3]",
+          "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
-          "answer_correct": false,
-          "latency_s": 0.09,
+          "answer_correct": true,
+          "latency_s": 0.02,
           "judge": null,
           "retrieved": [
-            "bd2e38b6135c-0003",
-            "3e984c0fbfd7-0001",
-            "3e984c0fbfd7-0000",
-            "b9fb871d04ff-0001",
-            "bd2e38b6135c-0000",
-            "3e984c0fbfd7-0002"
+            "17f9228198c5-0004",
+            "98c5cbe973fc-0003",
+            "aa46d9d60c54-0001",
+            "80cbb5d6b01a-0003",
+            "17f9228198c5-0005",
+            "aa46d9d60c54-0000"
           ]
         },
         {
@@ -371,15 +372,15 @@
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
           "answer_correct": false,
-          "latency_s": 0.08,
+          "latency_s": 0.04,
           "judge": null,
           "retrieved": [
-            "bd2e38b6135c-0005",
-            "3e984c0fbfd7-0002",
-            "3e984c0fbfd7-0001",
-            "3e984c0fbfd7-0000",
-            "1fe81fa56402-0000",
-            "d8a6eb1ed89d-0005"
+            "17f9228198c5-0009",
+            "98c5cbe973fc-0005",
+            "aa46d9d60c54-0002",
+            "80cbb5d6b01a-0004",
+            "aa46d9d60c54-0001",
+            "aa46d9d60c54-0000"
           ]
         },
         {
@@ -393,15 +394,15 @@
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
           "answer_correct": false,
-          "latency_s": 0.02,
+          "latency_s": 0.03,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0004",
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0003",
-            "d8a6eb1ed89d-0002",
-            "3e984c0fbfd7-0002",
-            "bd2e38b6135c-0006"
+            "dec0632ecb0c-0004",
+            "dec0632ecb0c-0005",
+            "dec0632ecb0c-0003",
+            "dec0632ecb0c-0002",
+            "aa46d9d60c54-0002",
+            "98c5cbe973fc-0006"
           ]
         },
         {
@@ -418,19 +419,19 @@
           "latency_s": 0.04,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0004",
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0002",
-            "d8a6eb1ed89d-0003",
-            "3e984c0fbfd7-0002",
-            "d8a6eb1ed89d-0001"
+            "dec0632ecb0c-0004",
+            "dec0632ecb0c-0005",
+            "dec0632ecb0c-0002",
+            "dec0632ecb0c-0003",
+            "aa46d9d60c54-0002",
+            "dec0632ecb0c-0001"
           ]
         },
         {
           "id": "m07",
           "type": "multi-hop",
           "question": "Can I pay for the Nila AirCool 12000 Inverter AC in 0% instalments?",
-          "answer": "Here's what I found: Product: Nila AirCool 12000 Inverter AC; Model: NAC-12I; Price: Rs. 189,900; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [1] Product: Nila AirCool 18000 Inverter AC; Model: NAC-18I; Price: Rs. 264,500; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [1] A free Nila BreezeLine 16 inch Pedestal Fan with every Nila AirCool air conditioner purchased during the sale. [2]",
+          "answer": "Here's what I found: Product: Nila AirCool 12000 Inverter AC; Model: NAC-12I; Price: Rs. 189,900; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [1] Nila AirCool 12000 Inverter AC [2] Product: Nila AirCool 18000 Inverter AC; Model: NAC-18I; Price: Rs. 264,500; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [1]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 0.5,
@@ -440,56 +441,56 @@
           "latency_s": 0.05,
           "judge": null,
           "retrieved": [
-            "bd2e38b6135c-0001",
-            "b9fb871d04ff-0001",
-            "bd2e38b6135c-0005",
-            "1fe81fa56402-0000",
-            "bd2e38b6135c-0002",
-            "1fe81fa56402-0001"
+            "98c5cbe973fc-0001",
+            "17f9228198c5-0000",
+            "17f9228198c5-0001",
+            "ed6eb7559762-0001",
+            "98c5cbe973fc-0005",
+            "928e7bbc7427-0000"
           ]
         },
         {
           "id": "m08",
           "type": "multi-hop",
           "question": "Is delivery free if I order only a RiceMaster rice cooker to Colombo?",
-          "answer": "Here's what I found: Delivery is free within the Colombo and Gampaha districts for orders above Rs. 50,000. [1] Product: Nila RiceMaster 1.8L Rice Cooker; Model: NRC-18; Price: Rs. 12,900; Warranty plan: Basic Care; Available at: All branches. [2] Delivery to other provinces costs Rs. 4,500 for any order value. [1]",
+          "answer": "Here's what I found: Delivery is free within the Colombo and Gampaha districts for orders above Rs. 50,000. [1] Nila RiceMaster 1.8L Rice Cooker [2] Product: Nila RiceMaster 1.8L Rice Cooker; Model: NRC-18; Price: Rs. 12,900; Warranty plan: Basic Care; Available at: All branches. [3]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
           "answer_correct": false,
-          "latency_s": 0.09,
+          "latency_s": 0.11,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0004",
-            "bd2e38b6135c-0005",
-            "d8a6eb1ed89d-0002",
-            "bd2e38b6135c-0000",
-            "3e984c0fbfd7-0002",
-            "bd2e38b6135c-0006"
+            "aa46d9d60c54-0004",
+            "17f9228198c5-0009",
+            "98c5cbe973fc-0005",
+            "dec0632ecb0c-0002",
+            "98c5cbe973fc-0000",
+            "aa46d9d60c54-0002"
           ]
         },
         {
           "id": "m09",
           "type": "multi-hop",
           "question": "What is the price of the WashPro 8kg washer during the Year-End Sale?",
-          "answer": "Here's what I found: 15% off the Nila WashPro 8kg Front Load Washer during the Year-End Sale. [2] Product: Nila WashPro 8kg Front Load Washer; Model: NWM-8F; Price: Rs. 139,900; Warranty plan: Gold Care; Available at: All branches. [1] Double Nila Rewards points on all televisions during the Year-End Sale. [2]",
+          "answer": "Here's what I found: 15% off the Nila WashPro 8kg Front Load Washer during the Year-End Sale. [3] Product: Nila WashPro 8kg Front Load Washer; Model: NWM-8F; Price: Rs. 139,900; Warranty plan: Gold Care; Available at: All branches. [2] Nila WashPro 8kg Front Load Washer [1]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
           "answer_correct": true,
-          "latency_s": 0.05,
+          "latency_s": 0.08,
           "judge": null,
           "retrieved": [
-            "bd2e38b6135c-0003",
-            "b9fb871d04ff-0001",
-            "b9fb871d04ff-0000",
-            "bd2e38b6135c-0000",
-            "3e984c0fbfd7-0001",
-            "bd2e38b6135c-0005"
+            "17f9228198c5-0004",
+            "98c5cbe973fc-0003",
+            "ed6eb7559762-0001",
+            "ed6eb7559762-0000",
+            "17f9228198c5-0005",
+            "98c5cbe973fc-0000"
           ]
         },
         {
@@ -503,15 +504,15 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": false,
-          "latency_s": 0.07,
+          "latency_s": 0.05,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0005",
-            "b9fb871d04ff-0001",
-            "d8a6eb1ed89d-0003",
-            "d8a6eb1ed89d-0002",
-            "bd2e38b6135c-0001",
-            "d8a6eb1ed89d-0004"
+            "dec0632ecb0c-0005",
+            "17f9228198c5-0001",
+            "ed6eb7559762-0001",
+            "dec0632ecb0c-0003",
+            "dec0632ecb0c-0002",
+            "98c5cbe973fc-0001"
           ]
         },
         {
@@ -528,12 +529,12 @@
           "latency_s": 0.02,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0002",
-            "d8a6eb1ed89d-0003",
-            "3e984c0fbfd7-0003",
-            "bd2e38b6135c-0004",
-            "3e984c0fbfd7-0001",
-            "d8a6eb1ed89d-0005"
+            "aa46d9d60c54-0002",
+            "dec0632ecb0c-0003",
+            "aa46d9d60c54-0003",
+            "98c5cbe973fc-0004",
+            "aa46d9d60c54-0001",
+            "dec0632ecb0c-0005"
           ]
         },
         {
@@ -543,19 +544,19 @@
           "answer": "Here's what I found: A free Nila BreezeLine 16 inch Pedestal Fan with every Nila AirCool air conditioner purchased during the sale. [1] 15% off the Nila WashPro 8kg Front Load Washer during the Year-End Sale. [1] Double Nila Rewards points on all televisions during the Year-End Sale. [1]",
           "answerable": true,
           "unanswerable": false,
-          "context_recall": 1.0,
-          "full_context_hit": true,
-          "context_precision": 0.3333333333333333,
+          "context_recall": 0.5,
+          "full_context_hit": false,
+          "context_precision": 0.16666666666666666,
           "answer_correct": false,
           "latency_s": 0.05,
           "judge": null,
           "retrieved": [
-            "b9fb871d04ff-0001",
-            "bd2e38b6135c-0001",
-            "1fe81fa56402-0000",
-            "1fe81fa56402-0001",
-            "bd2e38b6135c-0005",
-            "bd2e38b6135c-0002"
+            "ed6eb7559762-0001",
+            "17f9228198c5-0001",
+            "98c5cbe973fc-0001",
+            "928e7bbc7427-0000",
+            "17f9228198c5-0000",
+            "928e7bbc7427-0001"
           ]
         },
         {
@@ -569,37 +570,37 @@
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
           "answer_correct": true,
-          "latency_s": 0.03,
+          "latency_s": 0.07,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0001",
-            "3e984c0fbfd7-0002",
-            "d8a6eb1ed89d-0002",
-            "d8a6eb1ed89d-0000",
-            "d8a6eb1ed89d-0004",
-            "d8a6eb1ed89d-0005"
+            "dec0632ecb0c-0001",
+            "aa46d9d60c54-0002",
+            "a499db76c50e-0000",
+            "dec0632ecb0c-0002",
+            "dec0632ecb0c-0000",
+            "a499db76c50e-0001"
           ]
         },
         {
-          "id": "u01",
-          "type": "unanswerable",
+          "id": "s13",
+          "type": "single-hop",
           "question": "Do you sell iPhones?",
           "answer": "Sorry, I don't have that information in our documents. Would you like me to connect you with a team member? Reply *human* and someone will get back to you.",
           "answerable": false,
-          "unanswerable": true,
-          "context_recall": null,
-          "full_context_hit": null,
-          "context_precision": null,
-          "answer_correct": true,
-          "latency_s": 0.03,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": false,
+          "latency_s": 0.01,
           "judge": null,
           "retrieved": [
-            "b9fb871d04ff-0002",
-            "1fe81fa56402-0000",
-            "1fe81fa56402-0001",
-            "b9fb871d04ff-0000",
-            "3e984c0fbfd7-0005",
-            "bd2e38b6135c-0000"
+            "ed6eb7559762-0002",
+            "928e7bbc7427-0000",
+            "928e7bbc7427-0001",
+            "ed6eb7559762-0000",
+            "a499db76c50e-0000",
+            "aa46d9d60c54-0005"
           ]
         },
         {
@@ -613,15 +614,15 @@
           "full_context_hit": null,
           "context_precision": null,
           "answer_correct": false,
-          "latency_s": 0.06,
+          "latency_s": 0.03,
           "judge": null,
           "retrieved": [
-            "bd2e38b6135c-0004",
-            "1fe81fa56402-0000",
-            "3e984c0fbfd7-0000",
-            "bd2e38b6135c-0005",
-            "bd2e38b6135c-0002",
-            "bd2e38b6135c-0000"
+            "98c5cbe973fc-0004",
+            "928e7bbc7427-0000",
+            "aa46d9d60c54-0000",
+            "98c5cbe973fc-0005",
+            "98c5cbe973fc-0002",
+            "98c5cbe973fc-0000"
           ]
         },
         {
@@ -635,15 +636,15 @@
           "full_context_hit": null,
           "context_precision": null,
           "answer_correct": true,
-          "latency_s": 0.05,
+          "latency_s": 0.02,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0001",
-            "1fe81fa56402-0001",
-            "d8a6eb1ed89d-0006",
-            "b9fb871d04ff-0000",
-            "bd2e38b6135c-0001",
-            "bd2e38b6135c-0000"
+            "dec0632ecb0c-0001",
+            "a499db76c50e-0000",
+            "928e7bbc7427-0001",
+            "a499db76c50e-0001",
+            "dec0632ecb0c-0006",
+            "ed6eb7559762-0000"
           ]
         },
         {
@@ -657,15 +658,15 @@
           "full_context_hit": null,
           "context_precision": null,
           "answer_correct": true,
-          "latency_s": 0.02,
+          "latency_s": 0.03,
           "judge": null,
           "retrieved": [
-            "b9fb871d04ff-0002",
-            "1fe81fa56402-0001",
-            "bd2e38b6135c-0000",
-            "1fe81fa56402-0000",
-            "3e984c0fbfd7-0005",
-            "b9fb871d04ff-0000"
+            "ed6eb7559762-0002",
+            "928e7bbc7427-0001",
+            "98c5cbe973fc-0000",
+            "928e7bbc7427-0000",
+            "aa46d9d60c54-0005",
+            "ed6eb7559762-0000"
           ]
         },
         {
@@ -679,42 +680,42 @@
           "full_context_hit": null,
           "context_precision": null,
           "answer_correct": false,
-          "latency_s": 0.03,
+          "latency_s": 0.06,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0003",
-            "d8a6eb1ed89d-0005",
-            "b9fb871d04ff-0000",
-            "d8a6eb1ed89d-0004",
-            "d8a6eb1ed89d-0002",
-            "bd2e38b6135c-0000"
+            "dec0632ecb0c-0003",
+            "dec0632ecb0c-0005",
+            "ed6eb7559762-0000",
+            "dec0632ecb0c-0004",
+            "dec0632ecb0c-0002",
+            "98c5cbe973fc-0000"
           ]
         }
       ]
     },
     "hybrid": {
-      "context_recall": 0.98,
-      "full_context_hit": 0.96,
-      "context_precision": 0.253,
-      "answer_accuracy": 0.48,
-      "refusal_accuracy": 0.6,
-      "false_refusals": 2,
-      "latency_s_median": 0.99,
+      "context_recall": 0.962,
+      "full_context_hit": 0.923,
+      "context_precision": 0.244,
+      "answer_accuracy": 0.462,
+      "refusal_accuracy": 0.5,
+      "false_refusals": 3,
+      "latency_s_median": 0.61,
       "by_type": {
         "multi-hop": {
           "n": 13,
-          "context_recall": 0.962,
+          "context_recall": 0.923,
           "accuracy": 0.308
         },
         "single-hop": {
-          "n": 12,
+          "n": 13,
           "context_recall": 1.0,
-          "accuracy": 0.667
+          "accuracy": 0.615
         },
         "unanswerable": {
-          "n": 5,
+          "n": 4,
           "context_recall": null,
-          "accuracy": 0.6
+          "accuracy": 0.5
         }
       },
       "rows": [
@@ -722,22 +723,22 @@
           "id": "s01",
           "type": "single-hop",
           "question": "What is the price of the Nila FrostFree 340L refrigerator?",
-          "answer": "Here's what I found: Product: Nila FrostFree 340L Refrigerator; Model: NFR-340; Price: Rs. 154,990; Warranty plan: Silver Care; Available at: All branches. [1] Product: Nila DoubleDoor 250L Refrigerator; Model: NFR-250; Price: Rs. 112,500; Warranty plan: Silver Care; Available at: All branches. [1] Product: Nila PowerBlend 1200W Blender; Model: NBL-12; Price: Rs. 18,450; Warranty plan: Basic Care; Available at: All branches. [2]",
+          "answer": "Here's what I found: Product: Nila FrostFree 340L Refrigerator; Model: NFR-340; Price: Rs. 154,990; Warranty plan: Silver Care; Available at: All branches. [1] Nila FrostFree 340L Refrigerator [2] Product: Nila DoubleDoor 250L Refrigerator; Model: NFR-250; Price: Rs. 112,500; Warranty plan: Silver Care; Available at: All branches. [1]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": true,
-          "latency_s": 0.82,
+          "latency_s": 0.61,
           "judge": null,
           "retrieved": [
-            "bd2e38b6135c-0002",
-            "bd2e38b6135c-0005",
-            "bd2e38b6135c-0001",
-            "bd2e38b6135c-0003",
-            "1fe81fa56402-0001",
-            "bd2e38b6135c-0004"
+            "98c5cbe973fc-0002",
+            "17f9228198c5-0002",
+            "98c5cbe973fc-0005",
+            "17f9228198c5-0003",
+            "98c5cbe973fc-0001",
+            "98c5cbe973fc-0003"
           ]
         },
         {
@@ -751,15 +752,15 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": false,
-          "latency_s": 0.83,
+          "latency_s": 0.3,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0004",
-            "d8a6eb1ed89d-0002",
-            "3e984c0fbfd7-0002",
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0003",
-            "d8a6eb1ed89d-0001"
+            "dec0632ecb0c-0004",
+            "dec0632ecb0c-0002",
+            "aa46d9d60c54-0002",
+            "dec0632ecb0c-0005",
+            "dec0632ecb0c-0003",
+            "dec0632ecb0c-0001"
           ]
         },
         {
@@ -773,59 +774,59 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": false,
-          "latency_s": 0.9,
+          "latency_s": 0.64,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0003",
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0004",
-            "d8a6eb1ed89d-0002",
-            "3e984c0fbfd7-0002",
-            "d8a6eb1ed89d-0006"
+            "dec0632ecb0c-0003",
+            "dec0632ecb0c-0005",
+            "dec0632ecb0c-0004",
+            "dec0632ecb0c-0002",
+            "aa46d9d60c54-0002",
+            "dec0632ecb0c-0006"
           ]
         },
         {
           "id": "s04",
           "type": "single-hop",
           "question": "What is the customer care hotline number?",
-          "answer": "Here's what I found: Customer care hotline: 011 245 7788 (Monday to Saturday, 8.00 AM - 8.00 PM). [1] A: You can place an order through the customer care hotline 011 245 7788 or on WhatsApp, and pay by bank transfer or cash on delivery. [2] Today we sell air conditioners, refrigerators, washing machines, televisions and small kitchen appliances under our own brand, Nila, through four branches and our customer care hotline. [3]",
+          "answer": "Here's what I found: Customer care hotline: 011 245 7788 (Monday to Saturday, 8.00 AM - 8.00 PM). [1] A: You can place an order through the customer care hotline 011 245 7788 or on WhatsApp, and pay by bank transfer or cash on delivery. [2] Repairs under Basic Care are carry-in: the customer brings the product to a branch. [4]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.5,
           "answer_correct": true,
-          "latency_s": 0.83,
+          "latency_s": 0.56,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0006",
-            "1fe81fa56402-0000",
-            "d8a6eb1ed89d-0000",
-            "3e984c0fbfd7-0002",
-            "d8a6eb1ed89d-0001",
-            "3e984c0fbfd7-0000"
+            "dec0632ecb0c-0006",
+            "928e7bbc7427-0000",
+            "aa46d9d60c54-0002",
+            "aa46d9d60c54-0000",
+            "dec0632ecb0c-0001",
+            "dec0632ecb0c-0000"
           ]
         },
         {
           "id": "s05",
           "type": "single-hop",
           "question": "Can I return an unopened product?",
-          "answer": "Here's what I found: Unopened products can be returned within 7 days of purchase for a full refund, with the original invoice. [1] A: Bring the product and your invoice to any branch, or call the hotline to book a home visit if your warranty plan includes home-visit repairs. [2] Every Nila product comes with one of three warranty plans: Basic Care, Silver Care or Gold Care. [4]",
+          "answer": "Here's what I found: Unopened products can be returned within 7 days of purchase for a full refund, with the original invoice. [1] Nilaveli Electronics - Product Catalog 2026 [2] The warranty plan for each product is explained in the Service and Warranty Policy. [2]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": true,
-          "latency_s": 1.04,
+          "latency_s": 0.63,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0003",
-            "1fe81fa56402-0000",
-            "1fe81fa56402-0001",
-            "3e984c0fbfd7-0000",
-            "bd2e38b6135c-0006",
-            "b9fb871d04ff-0002"
+            "aa46d9d60c54-0003",
+            "98c5cbe973fc-0000",
+            "aa46d9d60c54-0000",
+            "928e7bbc7427-0000",
+            "98c5cbe973fc-0002",
+            "98c5cbe973fc-0005"
           ]
         },
         {
@@ -839,37 +840,37 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": true,
-          "latency_s": 0.86,
+          "latency_s": 0.26,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0005",
-            "1fe81fa56402-0001",
-            "1fe81fa56402-0000",
-            "3e984c0fbfd7-0004",
-            "bd2e38b6135c-0006",
-            "d8a6eb1ed89d-0005"
+            "aa46d9d60c54-0005",
+            "ed6eb7559762-0002",
+            "928e7bbc7427-0001",
+            "928e7bbc7427-0000",
+            "aa46d9d60c54-0003",
+            "98c5cbe973fc-0006"
           ]
         },
         {
           "id": "s07",
           "type": "single-hop",
           "question": "Who founded Nilaveli Electronics?",
-          "answer": "Here's what I found: Nilaveli Electronics (Pvt) Ltd is a home appliance and electronics retailer in Sri Lanka. [1] The Nilaveli Electronics Year-End Sale runs from 1 December 2026 to 31 December 2026 at all branches. [2] Nilaveli Electronics - Product Catalog 2026 [3]",
+          "answer": "Here's what I found: Nilaveli Electronics (Pvt) Ltd is a home appliance and electronics retailer in Sri Lanka. [1] Working at Nilaveli Electronics [2] Nilaveli Electronics employs about 140 people across its branches, service centres and head office in Colombo. [2]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": false,
-          "latency_s": 1.02,
+          "latency_s": 0.65,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0000",
-            "b9fb871d04ff-0000",
-            "bd2e38b6135c-0000",
-            "1fe81fa56402-0000",
-            "d8a6eb1ed89d-0006",
-            "3e984c0fbfd7-0001"
+            "dec0632ecb0c-0000",
+            "a499db76c50e-0000",
+            "ed6eb7559762-0000",
+            "98c5cbe973fc-0000",
+            "928e7bbc7427-0000",
+            "aa46d9d60c54-0001"
           ]
         },
         {
@@ -883,15 +884,15 @@
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
           "answer_correct": true,
-          "latency_s": 0.96,
+          "latency_s": 0.93,
           "judge": null,
           "retrieved": [
-            "1fe81fa56402-0001",
-            "1fe81fa56402-0000",
-            "b9fb871d04ff-0001",
-            "3e984c0fbfd7-0000",
-            "d8a6eb1ed89d-0000",
-            "bd2e38b6135c-0005"
+            "928e7bbc7427-0001",
+            "928e7bbc7427-0000",
+            "ed6eb7559762-0001",
+            "98c5cbe973fc-0005",
+            "17f9228198c5-0001",
+            "98c5cbe973fc-0002"
           ]
         },
         {
@@ -905,15 +906,15 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": true,
-          "latency_s": 0.91,
+          "latency_s": 0.67,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0004",
-            "bd2e38b6135c-0001",
-            "bd2e38b6135c-0004",
-            "3e984c0fbfd7-0002",
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0002"
+            "aa46d9d60c54-0004",
+            "98c5cbe973fc-0001",
+            "dec0632ecb0c-0002",
+            "aa46d9d60c54-0002",
+            "dec0632ecb0c-0005",
+            "98c5cbe973fc-0004"
           ]
         },
         {
@@ -927,15 +928,15 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": true,
-          "latency_s": 0.82,
+          "latency_s": 0.58,
           "judge": null,
           "retrieved": [
-            "b9fb871d04ff-0000",
-            "b9fb871d04ff-0001",
-            "bd2e38b6135c-0000",
-            "b9fb871d04ff-0002",
-            "3e984c0fbfd7-0003",
-            "3e984c0fbfd7-0001"
+            "ed6eb7559762-0000",
+            "ed6eb7559762-0001",
+            "ed6eb7559762-0002",
+            "a499db76c50e-0001",
+            "98c5cbe973fc-0000",
+            "aa46d9d60c54-0003"
           ]
         },
         {
@@ -949,15 +950,15 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": true,
-          "latency_s": 1.03,
+          "latency_s": 0.29,
           "judge": null,
           "retrieved": [
-            "1fe81fa56402-0000",
-            "d8a6eb1ed89d-0000",
-            "bd2e38b6135c-0006",
-            "b9fb871d04ff-0000",
-            "1fe81fa56402-0001",
-            "bd2e38b6135c-0000"
+            "928e7bbc7427-0000",
+            "dec0632ecb0c-0000",
+            "aa46d9d60c54-0002",
+            "98c5cbe973fc-0006",
+            "98c5cbe973fc-0000",
+            "aa46d9d60c54-0003"
           ]
         },
         {
@@ -971,81 +972,81 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": false,
-          "latency_s": 0.87,
+          "latency_s": 0.7,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0001",
-            "d8a6eb1ed89d-0000",
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0002",
-            "b9fb871d04ff-0000",
-            "1fe81fa56402-0001"
+            "a499db76c50e-0002",
+            "dec0632ecb0c-0000",
+            "a499db76c50e-0001",
+            "928e7bbc7427-0001",
+            "dec0632ecb0c-0001",
+            "ed6eb7559762-0000"
           ]
         },
         {
           "id": "m01",
           "type": "multi-hop",
           "question": "How long is the compressor warranty on the Nila AirCool 12000?",
-          "answer": "Here's what I found: Product: Nila AirCool 12000 Inverter AC; Model: NAC-12I; Price: Rs. 189,900; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [2] Product: Nila AirCool 18000 Inverter AC; Model: NAC-18I; Price: Rs. 264,500; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [2] Every Nila product comes with one of three warranty plans: Basic Care, Silver Care or Gold Care. [1]",
+          "answer": "Here's what I found: Product: Nila AirCool 12000 Inverter AC; Model: NAC-12I; Price: Rs. 189,900; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [4] Nila AirCool 12000 Inverter AC [1] The Nila AirCool 12000 is a 12,000 BTU split air conditioner suitable for rooms up to 18 square metres. [1]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.5,
           "answer_correct": false,
-          "latency_s": 0.81,
+          "latency_s": 0.42,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0000",
-            "bd2e38b6135c-0001",
-            "3e984c0fbfd7-0001",
-            "bd2e38b6135c-0005",
-            "3e984c0fbfd7-0003",
-            "b9fb871d04ff-0001"
+            "17f9228198c5-0000",
+            "17f9228198c5-0001",
+            "aa46d9d60c54-0000",
+            "98c5cbe973fc-0001",
+            "aa46d9d60c54-0001",
+            "98c5cbe973fc-0005"
           ]
         },
         {
           "id": "m02",
           "type": "multi-hop",
           "question": "How long are parts and labour covered on the Nila VisionMax 55 inch TV?",
-          "answer": "Here's what I found: Product: Nila VisionMax 55 inch 4K Smart TV; Model: NTV-55U; Price: Rs. 229,000; Warranty plan: Silver Care; Available at: Colombo 03, Kandy, Galle. [2] Product: Nila VisionMax 43 inch Full HD Smart TV; Model: NTV-43F; Price: Rs. 129,500; Warranty plan: Basic Care; Available at: All branches. [2] Basic Care covers parts and labour for 1 year. [1]",
+          "answer": "Here's what I found: Nila VisionMax 55 inch 4K Smart TV [3] Product: Nila VisionMax 55 inch 4K Smart TV; Model: NTV-55U; Price: Rs. 229,000; Warranty plan: Silver Care; Available at: Colombo 03, Kandy, Galle. [4] Nila VisionMax 43 inch Full HD Smart TV [1]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
           "answer_correct": false,
-          "latency_s": 0.82,
+          "latency_s": 0.61,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0000",
-            "bd2e38b6135c-0004",
-            "3e984c0fbfd7-0001",
-            "b9fb871d04ff-0001",
-            "d8a6eb1ed89d-0000",
-            "bd2e38b6135c-0005"
+            "17f9228198c5-0007",
+            "aa46d9d60c54-0000",
+            "17f9228198c5-0006",
+            "98c5cbe973fc-0004",
+            "aa46d9d60c54-0001",
+            "98c5cbe973fc-0005"
           ]
         },
         {
           "id": "m03",
           "type": "multi-hop",
           "question": "Is the motor of the WashPro 8kg washer covered for 10 years?",
-          "answer": "Here's what I found: Gold Care covers parts and labour for 3 years, with a 10 year warranty on the inverter compressor of air conditioners and on the motor of washing machines. [1] 15% off the Nila WashPro 8kg Front Load Washer during the Year-End Sale. [2] Product: Nila WashPro 8kg Front Load Washer; Model: NWM-8F; Price: Rs. 139,900; Warranty plan: Gold Care; Available at: All branches. [3]",
+          "answer": "Here's what I found: Nila WashPro 8kg Front Load Washer [1] Gold Care covers parts and labour for 3 years, with a 10 year warranty on the inverter compressor of air conditioners and on the motor of washing machines. [2] 15% off the Nila WashPro 8kg Front Load Washer during the Year-End Sale. [3]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
           "answer_correct": true,
-          "latency_s": 0.88,
+          "latency_s": 0.56,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0001",
-            "b9fb871d04ff-0001",
-            "bd2e38b6135c-0003",
-            "3e984c0fbfd7-0000",
-            "d8a6eb1ed89d-0000",
-            "1fe81fa56402-0001"
+            "17f9228198c5-0004",
+            "aa46d9d60c54-0001",
+            "ed6eb7559762-0001",
+            "98c5cbe973fc-0003",
+            "17f9228198c5-0005",
+            "aa46d9d60c54-0000"
           ]
         },
         {
@@ -1055,19 +1056,19 @@
           "answer": "Sorry, I don't have that information in our documents. Would you like me to connect you with a team member? Reply *human* and someone will get back to you.",
           "answerable": false,
           "unanswerable": false,
-          "context_recall": 0.5,
-          "full_context_hit": false,
-          "context_precision": 0.16666666666666666,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
           "answer_correct": false,
-          "latency_s": 0.98,
+          "latency_s": 0.67,
           "judge": null,
           "retrieved": [
-            "bd2e38b6135c-0005",
-            "bd2e38b6135c-0006",
-            "3e984c0fbfd7-0002",
-            "1fe81fa56402-0001",
-            "d8a6eb1ed89d-0000",
-            "3e984c0fbfd7-0001"
+            "17f9228198c5-0009",
+            "98c5cbe973fc-0005",
+            "928e7bbc7427-0000",
+            "aa46d9d60c54-0000",
+            "dec0632ecb0c-0005",
+            "dec0632ecb0c-0000"
           ]
         },
         {
@@ -1081,15 +1082,15 @@
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
           "answer_correct": false,
-          "latency_s": 0.86,
+          "latency_s": 0.58,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0004",
-            "d8a6eb1ed89d-0002",
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0003",
-            "3e984c0fbfd7-0002",
-            "d8a6eb1ed89d-0001"
+            "dec0632ecb0c-0004",
+            "dec0632ecb0c-0002",
+            "dec0632ecb0c-0005",
+            "dec0632ecb0c-0003",
+            "aa46d9d60c54-0002",
+            "a499db76c50e-0000"
           ]
         },
         {
@@ -1103,59 +1104,59 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": false,
-          "latency_s": 0.82,
+          "latency_s": 0.53,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0004",
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0002",
-            "d8a6eb1ed89d-0003",
-            "d8a6eb1ed89d-0001",
-            "3e984c0fbfd7-0002"
+            "dec0632ecb0c-0004",
+            "dec0632ecb0c-0005",
+            "dec0632ecb0c-0002",
+            "dec0632ecb0c-0003",
+            "aa46d9d60c54-0002",
+            "98c5cbe973fc-0006"
           ]
         },
         {
           "id": "m07",
           "type": "multi-hop",
           "question": "Can I pay for the Nila AirCool 12000 Inverter AC in 0% instalments?",
-          "answer": "Here's what I found: Product: Nila AirCool 12000 Inverter AC; Model: NAC-12I; Price: Rs. 189,900; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [1] Product: Nila AirCool 18000 Inverter AC; Model: NAC-18I; Price: Rs. 264,500; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [1] A free Nila BreezeLine 16 inch Pedestal Fan with every Nila AirCool air conditioner purchased during the sale. [2]",
+          "answer": "Here's what I found: Product: Nila AirCool 12000 Inverter AC; Model: NAC-12I; Price: Rs. 189,900; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [1] Nila AirCool 12000 Inverter AC [2] Product: Nila AirCool 18000 Inverter AC; Model: NAC-18I; Price: Rs. 264,500; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [1]",
           "answerable": true,
           "unanswerable": false,
-          "context_recall": 1.0,
-          "full_context_hit": true,
-          "context_precision": 0.3333333333333333,
+          "context_recall": 0.5,
+          "full_context_hit": false,
+          "context_precision": 0.16666666666666666,
           "answer_correct": false,
-          "latency_s": 1.2,
+          "latency_s": 0.65,
           "judge": null,
           "retrieved": [
-            "bd2e38b6135c-0001",
-            "b9fb871d04ff-0001",
-            "bd2e38b6135c-0005",
-            "1fe81fa56402-0000",
-            "3e984c0fbfd7-0005",
-            "1fe81fa56402-0001"
+            "98c5cbe973fc-0001",
+            "17f9228198c5-0000",
+            "17f9228198c5-0001",
+            "ed6eb7559762-0001",
+            "928e7bbc7427-0000",
+            "98c5cbe973fc-0005"
           ]
         },
         {
           "id": "m08",
           "type": "multi-hop",
           "question": "Is delivery free if I order only a RiceMaster rice cooker to Colombo?",
-          "answer": "Here's what I found: Delivery is free within the Colombo and Gampaha districts for orders above Rs. 50,000. [1] Product: Nila RiceMaster 1.8L Rice Cooker; Model: NRC-18; Price: Rs. 12,900; Warranty plan: Basic Care; Available at: All branches. [2] Delivery to other provinces costs Rs. 4,500 for any order value. [1]",
+          "answer": "Here's what I found: Delivery is free within the Colombo and Gampaha districts for orders above Rs. 50,000. [1] Nila RiceMaster 1.8L Rice Cooker [2] Product: Nila RiceMaster 1.8L Rice Cooker; Model: NRC-18; Price: Rs. 12,900; Warranty plan: Basic Care; Available at: All branches. [3]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
           "answer_correct": false,
-          "latency_s": 1.01,
+          "latency_s": 0.64,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0004",
-            "bd2e38b6135c-0005",
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0000",
-            "bd2e38b6135c-0006",
-            "3e984c0fbfd7-0002"
+            "aa46d9d60c54-0004",
+            "17f9228198c5-0009",
+            "98c5cbe973fc-0005",
+            "dec0632ecb0c-0002",
+            "928e7bbc7427-0000",
+            "dec0632ecb0c-0005"
           ]
         },
         {
@@ -1169,15 +1170,15 @@
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
           "answer_correct": true,
-          "latency_s": 1.64,
+          "latency_s": 0.45,
           "judge": null,
           "retrieved": [
-            "b9fb871d04ff-0001",
-            "bd2e38b6135c-0003",
-            "b9fb871d04ff-0000",
-            "1fe81fa56402-0001",
-            "bd2e38b6135c-0005",
-            "bd2e38b6135c-0001"
+            "ed6eb7559762-0001",
+            "98c5cbe973fc-0003",
+            "17f9228198c5-0004",
+            "ed6eb7559762-0000",
+            "17f9228198c5-0005",
+            "98c5cbe973fc-0005"
           ]
         },
         {
@@ -1191,37 +1192,37 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": false,
-          "latency_s": 3.84,
+          "latency_s": 0.67,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0005",
-            "bd2e38b6135c-0001",
-            "3e984c0fbfd7-0002",
-            "d8a6eb1ed89d-0002",
-            "b9fb871d04ff-0001",
-            "d8a6eb1ed89d-0000"
+            "dec0632ecb0c-0005",
+            "17f9228198c5-0001",
+            "98c5cbe973fc-0001",
+            "17f9228198c5-0000",
+            "aa46d9d60c54-0002",
+            "dec0632ecb0c-0003"
           ]
         },
         {
           "id": "m11",
           "type": "multi-hop",
           "question": "If I hand in a faulty TV at the Kandy branch, how long will the repair take?",
-          "answer": "Here's what I found: Products handed in at the Kandy or Kurunegala branches are sent to the Colombo 03 service centre, and repairs then take 7 to 10 working days. [1] Opened products can be exchanged within 7 days only if they are faulty. [2] Kandy Branch [3]",
+          "answer": "Here's what I found: Products handed in at the Kandy or Kurunegala branches are sent to the Colombo 03 service centre, and repairs then take 7 to 10 working days. [1] Kandy Branch [2] The Kandy Branch is at 45 Dalada Veediya, Kandy. [2]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": true,
-          "latency_s": 4.64,
+          "latency_s": 0.63,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0002",
-            "3e984c0fbfd7-0003",
-            "d8a6eb1ed89d-0003",
-            "bd2e38b6135c-0004",
-            "3e984c0fbfd7-0000",
-            "d8a6eb1ed89d-0004"
+            "aa46d9d60c54-0002",
+            "dec0632ecb0c-0003",
+            "aa46d9d60c54-0003",
+            "98c5cbe973fc-0004",
+            "928e7bbc7427-0000",
+            "dec0632ecb0c-0005"
           ]
         },
         {
@@ -1231,19 +1232,19 @@
           "answer": "Here's what I found: A free Nila BreezeLine 16 inch Pedestal Fan with every Nila AirCool air conditioner purchased during the sale. [1] 15% off the Nila WashPro 8kg Front Load Washer during the Year-End Sale. [1] Double Nila Rewards points on all televisions during the Year-End Sale. [1]",
           "answerable": true,
           "unanswerable": false,
-          "context_recall": 1.0,
-          "full_context_hit": true,
-          "context_precision": 0.3333333333333333,
+          "context_recall": 0.5,
+          "full_context_hit": false,
+          "context_precision": 0.16666666666666666,
           "answer_correct": false,
-          "latency_s": 4.14,
+          "latency_s": 0.68,
           "judge": null,
           "retrieved": [
-            "b9fb871d04ff-0001",
-            "1fe81fa56402-0001",
-            "bd2e38b6135c-0001",
-            "1fe81fa56402-0000",
-            "bd2e38b6135c-0002",
-            "bd2e38b6135c-0005"
+            "ed6eb7559762-0001",
+            "928e7bbc7427-0001",
+            "98c5cbe973fc-0001",
+            "17f9228198c5-0001",
+            "17f9228198c5-0000",
+            "928e7bbc7427-0000"
           ]
         },
         {
@@ -1257,59 +1258,59 @@
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
           "answer_correct": true,
-          "latency_s": 3.51,
+          "latency_s": 0.37,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0001",
-            "3e984c0fbfd7-0002",
-            "d8a6eb1ed89d-0004",
-            "d8a6eb1ed89d-0002",
-            "d8a6eb1ed89d-0000",
-            "d8a6eb1ed89d-0005"
+            "dec0632ecb0c-0001",
+            "aa46d9d60c54-0002",
+            "a499db76c50e-0000",
+            "dec0632ecb0c-0004",
+            "dec0632ecb0c-0002",
+            "a499db76c50e-0001"
           ]
         },
         {
-          "id": "u01",
-          "type": "unanswerable",
+          "id": "s13",
+          "type": "single-hop",
           "question": "Do you sell iPhones?",
           "answer": "Sorry, I don't have that information in our documents. Would you like me to connect you with a team member? Reply *human* and someone will get back to you.",
           "answerable": false,
-          "unanswerable": true,
-          "context_recall": null,
-          "full_context_hit": null,
-          "context_precision": null,
-          "answer_correct": true,
-          "latency_s": 3.57,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": false,
+          "latency_s": 0.52,
           "judge": null,
           "retrieved": [
-            "1fe81fa56402-0000",
-            "d8a6eb1ed89d-0000",
-            "b9fb871d04ff-0000",
-            "1fe81fa56402-0001",
-            "b9fb871d04ff-0002",
-            "b9fb871d04ff-0001"
+            "928e7bbc7427-0000",
+            "dec0632ecb0c-0000",
+            "ed6eb7559762-0002",
+            "928e7bbc7427-0001",
+            "ed6eb7559762-0000",
+            "a499db76c50e-0000"
           ]
         },
         {
           "id": "u02",
           "type": "unanswerable",
           "question": "What is the warranty on the Nila SmartWatch?",
-          "answer": "Here's what I found: Every Nila product comes with one of three warranty plans: Basic Care, Silver Care or Gold Care. [1] Product: Nila VisionMax 55 inch 4K Smart TV; Model: NTV-55U; Price: Rs. 229,000; Warranty plan: Silver Care; Available at: Colombo 03, Kandy, Galle. [2] Product: Nila VisionMax 43 inch Full HD Smart TV; Model: NTV-43F; Price: Rs. 129,500; Warranty plan: Basic Care; Available at: All branches. [2]",
+          "answer": "Here's what I found: Product: Nila VisionMax 55 inch 4K Smart TV; Model: NTV-55U; Price: Rs. 229,000; Warranty plan: Silver Care; Available at: Colombo 03, Kandy, Galle. [1] Product: Nila VisionMax 43 inch Full HD Smart TV; Model: NTV-43F; Price: Rs. 129,500; Warranty plan: Basic Care; Available at: All branches. [1] Every Nila product comes with one of three warranty plans: Basic Care, Silver Care or Gold Care. [2]",
           "answerable": true,
           "unanswerable": true,
           "context_recall": null,
           "full_context_hit": null,
           "context_precision": null,
           "answer_correct": false,
-          "latency_s": 3.89,
+          "latency_s": 0.6,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0000",
-            "bd2e38b6135c-0004",
-            "1fe81fa56402-0000",
-            "bd2e38b6135c-0001",
-            "bd2e38b6135c-0005",
-            "bd2e38b6135c-0002"
+            "98c5cbe973fc-0004",
+            "aa46d9d60c54-0000",
+            "928e7bbc7427-0000",
+            "98c5cbe973fc-0001",
+            "98c5cbe973fc-0005",
+            "98c5cbe973fc-0002"
           ]
         },
         {
@@ -1323,15 +1324,15 @@
           "full_context_hit": null,
           "context_precision": null,
           "answer_correct": true,
-          "latency_s": 3.49,
+          "latency_s": 0.65,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0001",
-            "1fe81fa56402-0001",
-            "d8a6eb1ed89d-0000",
-            "3e984c0fbfd7-0004",
-            "bd2e38b6135c-0002",
-            "bd2e38b6135c-0005"
+            "928e7bbc7427-0001",
+            "aa46d9d60c54-0000",
+            "dec0632ecb0c-0001",
+            "80cbb5d6b01a-0004",
+            "a499db76c50e-0000",
+            "a499db76c50e-0001"
           ]
         },
         {
@@ -1345,15 +1346,15 @@
           "full_context_hit": null,
           "context_precision": null,
           "answer_correct": true,
-          "latency_s": 3.52,
+          "latency_s": 0.56,
           "judge": null,
           "retrieved": [
-            "b9fb871d04ff-0002",
-            "1fe81fa56402-0001",
-            "3e984c0fbfd7-0004",
-            "bd2e38b6135c-0003",
-            "bd2e38b6135c-0002",
-            "bd2e38b6135c-0005"
+            "ed6eb7559762-0002",
+            "928e7bbc7427-0001",
+            "98c5cbe973fc-0000",
+            "928e7bbc7427-0000",
+            "aa46d9d60c54-0005",
+            "ed6eb7559762-0000"
           ]
         },
         {
@@ -1367,42 +1368,42 @@
           "full_context_hit": null,
           "context_precision": null,
           "answer_correct": false,
-          "latency_s": 3.65,
+          "latency_s": 0.62,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0003",
-            "d8a6eb1ed89d-0002",
-            "d8a6eb1ed89d-0004",
-            "b9fb871d04ff-0000",
-            "3e984c0fbfd7-0002"
+            "dec0632ecb0c-0005",
+            "dec0632ecb0c-0003",
+            "dec0632ecb0c-0002",
+            "dec0632ecb0c-0004",
+            "aa46d9d60c54-0002",
+            "98c5cbe973fc-0006"
           ]
         }
       ]
     },
     "graphrag": {
-      "context_recall": 0.98,
-      "full_context_hit": 0.96,
-      "context_precision": 0.253,
-      "answer_accuracy": 0.56,
-      "refusal_accuracy": 0.6,
-      "false_refusals": 2,
-      "latency_s_median": 3.66,
+      "context_recall": 0.981,
+      "full_context_hit": 0.962,
+      "context_precision": 0.25,
+      "answer_accuracy": 0.5,
+      "refusal_accuracy": 0.5,
+      "false_refusals": 3,
+      "latency_s_median": 0.62,
       "by_type": {
         "multi-hop": {
           "n": 13,
           "context_recall": 0.962,
-          "accuracy": 0.385
+          "accuracy": 0.308
         },
         "single-hop": {
-          "n": 12,
+          "n": 13,
           "context_recall": 1.0,
-          "accuracy": 0.75
+          "accuracy": 0.692
         },
         "unanswerable": {
-          "n": 5,
+          "n": 4,
           "context_recall": null,
-          "accuracy": 0.6
+          "accuracy": 0.5
         }
       },
       "rows": [
@@ -1410,22 +1411,22 @@
           "id": "s01",
           "type": "single-hop",
           "question": "What is the price of the Nila FrostFree 340L refrigerator?",
-          "answer": "Here's what I found: Product: Nila FrostFree 340L Refrigerator; Model: NFR-340; Price: Rs. 154,990; Warranty plan: Silver Care; Available at: All branches. [1] Product: Nila DoubleDoor 250L Refrigerator; Model: NFR-250; Price: Rs. 112,500; Warranty plan: Silver Care; Available at: All branches. [1] Product: Nila AirCool 18000 Inverter AC; Model: NAC-18I; Price: Rs. 264,500; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [3]",
+          "answer": "Here's what I found: Product: Nila FrostFree 340L Refrigerator; Model: NFR-340; Price: Rs. 154,990; Warranty plan: Silver Care; Available at: All branches. [1] Product: Nila DoubleDoor 250L Refrigerator; Model: NFR-250; Price: Rs. 112,500; Warranty plan: Silver Care; Available at: All branches. [1] Nila FrostFree 340L Refrigerator [2]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": true,
-          "latency_s": 15.84,
+          "latency_s": 3.11,
           "judge": null,
           "retrieved": [
-            "bd2e38b6135c-0002",
-            "bd2e38b6135c-0005",
-            "bd2e38b6135c-0001",
-            "bd2e38b6135c-0003",
-            "3e984c0fbfd7-0000",
-            "3e984c0fbfd7-0002"
+            "98c5cbe973fc-0002",
+            "17f9228198c5-0002",
+            "17f9228198c5-0003",
+            "98c5cbe973fc-0001",
+            "98c5cbe973fc-0005",
+            "98c5cbe973fc-0003"
           ]
         },
         {
@@ -1439,15 +1440,15 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": true,
-          "latency_s": 3.63,
+          "latency_s": 0.63,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0004",
-            "d8a6eb1ed89d-0002",
-            "3e984c0fbfd7-0002",
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0003",
-            "d8a6eb1ed89d-0006"
+            "dec0632ecb0c-0004",
+            "dec0632ecb0c-0002",
+            "aa46d9d60c54-0002",
+            "dec0632ecb0c-0005",
+            "dec0632ecb0c-0003",
+            "dec0632ecb0c-0001"
           ]
         },
         {
@@ -1461,37 +1462,37 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": false,
-          "latency_s": 3.5,
+          "latency_s": 0.67,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0003",
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0004",
-            "d8a6eb1ed89d-0002",
-            "3e984c0fbfd7-0002",
-            "d8a6eb1ed89d-0006"
+            "dec0632ecb0c-0003",
+            "dec0632ecb0c-0005",
+            "dec0632ecb0c-0004",
+            "dec0632ecb0c-0002",
+            "aa46d9d60c54-0002",
+            "dec0632ecb0c-0006"
           ]
         },
         {
           "id": "s04",
           "type": "single-hop",
           "question": "What is the customer care hotline number?",
-          "answer": "Here's what I found: Customer care hotline: 011 245 7788 (Monday to Saturday, 8.00 AM - 8.00 PM). [1] A: You can place an order through the customer care hotline 011 245 7788 or on WhatsApp, and pay by bank transfer or cash on delivery. [2] Today we sell air conditioners, refrigerators, washing machines, televisions and small kitchen appliances under our own brand, Nila, through four branches and our customer care hotline. [3]",
+          "answer": "Here's what I found: Customer care hotline: 011 245 7788 (Monday to Saturday, 8.00 AM - 8.00 PM). [1] A: You can place an order through the customer care hotline 011 245 7788 or on WhatsApp, and pay by bank transfer or cash on delivery. [2] Email: care@nilaveli-electronics.example. [1]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.5,
           "answer_correct": true,
-          "latency_s": 3.53,
+          "latency_s": 0.6,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0006",
-            "1fe81fa56402-0000",
-            "d8a6eb1ed89d-0000",
-            "3e984c0fbfd7-0002",
-            "d8a6eb1ed89d-0002",
-            "d8a6eb1ed89d-0004"
+            "dec0632ecb0c-0006",
+            "928e7bbc7427-0000",
+            "aa46d9d60c54-0002",
+            "aa46d9d60c54-0000",
+            "dec0632ecb0c-0001",
+            "dec0632ecb0c-0002"
           ]
         },
         {
@@ -1505,15 +1506,15 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": true,
-          "latency_s": 3.51,
+          "latency_s": 0.54,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0003",
-            "1fe81fa56402-0000",
-            "1fe81fa56402-0001",
-            "3e984c0fbfd7-0000",
-            "d8a6eb1ed89d-0006",
-            "3e984c0fbfd7-0002"
+            "aa46d9d60c54-0003",
+            "928e7bbc7427-0000",
+            "98c5cbe973fc-0000",
+            "928e7bbc7427-0001",
+            "aa46d9d60c54-0000",
+            "dec0632ecb0c-0006"
           ]
         },
         {
@@ -1527,37 +1528,37 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": true,
-          "latency_s": 3.49,
+          "latency_s": 0.66,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0005",
-            "1fe81fa56402-0001",
-            "1fe81fa56402-0000",
-            "3e984c0fbfd7-0004",
-            "d8a6eb1ed89d-0006",
-            "3e984c0fbfd7-0002"
+            "aa46d9d60c54-0005",
+            "928e7bbc7427-0000",
+            "928e7bbc7427-0001",
+            "dec0632ecb0c-0006",
+            "98c5cbe973fc-0000",
+            "aa46d9d60c54-0001"
           ]
         },
         {
           "id": "s07",
           "type": "single-hop",
           "question": "Who founded Nilaveli Electronics?",
-          "answer": "Here's what I found: The Nilaveli Electronics Year-End Sale runs from 1 December 2026 to 31 December 2026 at all branches. [2] Nilaveli Electronics (Pvt) Ltd is a home appliance and electronics retailer in Sri Lanka. [1] Nilaveli Electronics - Product Catalog 2026 [3]",
+          "answer": "Here's what I found: The Nilaveli Electronics Year-End Sale runs from 1 December 2026 to 31 December 2026 at all branches. [3] Nilaveli Electronics (Pvt) Ltd is a home appliance and electronics retailer in Sri Lanka. [1] Nilaveli Electronics - Product Catalog 2026 [4]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": false,
-          "latency_s": 3.5,
+          "latency_s": 0.62,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0000",
-            "b9fb871d04ff-0000",
-            "bd2e38b6135c-0000",
-            "1fe81fa56402-0000",
-            "d8a6eb1ed89d-0006",
-            "1fe81fa56402-0001"
+            "dec0632ecb0c-0000",
+            "a499db76c50e-0000",
+            "ed6eb7559762-0000",
+            "98c5cbe973fc-0000",
+            "928e7bbc7427-0000",
+            "aa46d9d60c54-0001"
           ]
         },
         {
@@ -1571,15 +1572,15 @@
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
           "answer_correct": true,
-          "latency_s": 3.84,
+          "latency_s": 0.58,
           "judge": null,
           "retrieved": [
-            "1fe81fa56402-0001",
-            "1fe81fa56402-0000",
-            "b9fb871d04ff-0001",
-            "3e984c0fbfd7-0000",
-            "3e984c0fbfd7-0005",
-            "d8a6eb1ed89d-0006"
+            "928e7bbc7427-0001",
+            "928e7bbc7427-0000",
+            "ed6eb7559762-0001",
+            "98c5cbe973fc-0003",
+            "aa46d9d60c54-0005",
+            "98c5cbe973fc-0005"
           ]
         },
         {
@@ -1593,15 +1594,15 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": true,
-          "latency_s": 3.7,
+          "latency_s": 0.48,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0004",
-            "bd2e38b6135c-0001",
-            "bd2e38b6135c-0004",
-            "3e984c0fbfd7-0002",
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0002"
+            "aa46d9d60c54-0004",
+            "98c5cbe973fc-0001",
+            "dec0632ecb0c-0002",
+            "aa46d9d60c54-0002",
+            "dec0632ecb0c-0005",
+            "98c5cbe973fc-0004"
           ]
         },
         {
@@ -1615,15 +1616,15 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": true,
-          "latency_s": 3.57,
+          "latency_s": 0.6,
           "judge": null,
           "retrieved": [
-            "b9fb871d04ff-0000",
-            "b9fb871d04ff-0001",
-            "bd2e38b6135c-0000",
-            "b9fb871d04ff-0002",
-            "bd2e38b6135c-0003",
-            "d8a6eb1ed89d-0000"
+            "ed6eb7559762-0000",
+            "ed6eb7559762-0001",
+            "98c5cbe973fc-0000",
+            "ed6eb7559762-0002",
+            "aa46d9d60c54-0001",
+            "a499db76c50e-0001"
           ]
         },
         {
@@ -1637,15 +1638,15 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": true,
-          "latency_s": 3.61,
+          "latency_s": 0.68,
           "judge": null,
           "retrieved": [
-            "1fe81fa56402-0000",
-            "d8a6eb1ed89d-0000",
-            "bd2e38b6135c-0006",
-            "b9fb871d04ff-0000",
-            "1fe81fa56402-0001",
-            "bd2e38b6135c-0000"
+            "928e7bbc7427-0000",
+            "dec0632ecb0c-0000",
+            "aa46d9d60c54-0002",
+            "98c5cbe973fc-0006",
+            "98c5cbe973fc-0000",
+            "aa46d9d60c54-0003"
           ]
         },
         {
@@ -1659,81 +1660,81 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": false,
-          "latency_s": 3.33,
+          "latency_s": 0.58,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0001",
-            "d8a6eb1ed89d-0000",
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0002",
-            "b9fb871d04ff-0000",
-            "1fe81fa56402-0001"
+            "dec0632ecb0c-0001",
+            "a499db76c50e-0002",
+            "dec0632ecb0c-0000",
+            "a499db76c50e-0001",
+            "928e7bbc7427-0001",
+            "ed6eb7559762-0000"
           ]
         },
         {
           "id": "m01",
           "type": "multi-hop",
           "question": "How long is the compressor warranty on the Nila AirCool 12000?",
-          "answer": "Here's what I found: Product: Nila AirCool 12000 Inverter AC; Model: NAC-12I; Price: Rs. 189,900; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [2] Product: Nila AirCool 18000 Inverter AC; Model: NAC-18I; Price: Rs. 264,500; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [2] Product: Nila RiceMaster 1.8L Rice Cooker; Model: NRC-18; Price: Rs. 12,900; Warranty plan: Basic Care; Available at: All branches. [4]",
+          "answer": "Here's what I found: Product: Nila AirCool 12000 Inverter AC; Model: NAC-12I; Price: Rs. 189,900; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [4] Product: Nila AirCool 18000 Inverter AC; Model: NAC-18I; Price: Rs. 264,500; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [4] Nila AirCool 12000 Inverter AC [1]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.5,
           "answer_correct": false,
-          "latency_s": 3.73,
+          "latency_s": 0.44,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0000",
-            "bd2e38b6135c-0001",
-            "3e984c0fbfd7-0001",
-            "bd2e38b6135c-0005",
-            "bd2e38b6135c-0004",
-            "bd2e38b6135c-0003"
+            "17f9228198c5-0000",
+            "17f9228198c5-0001",
+            "aa46d9d60c54-0000",
+            "98c5cbe973fc-0001",
+            "aa46d9d60c54-0001",
+            "98c5cbe973fc-0005"
           ]
         },
         {
           "id": "m02",
           "type": "multi-hop",
           "question": "How long are parts and labour covered on the Nila VisionMax 55 inch TV?",
-          "answer": "Here's what I found: Product: Nila VisionMax 55 inch 4K Smart TV; Model: NTV-55U; Price: Rs. 229,000; Warranty plan: Silver Care; Available at: Colombo 03, Kandy, Galle. [2] Product: Nila VisionMax 43 inch Full HD Smart TV; Model: NTV-43F; Price: Rs. 129,500; Warranty plan: Basic Care; Available at: All branches. [2] Basic Care covers parts and labour for 1 year. [1]",
+          "answer": "Here's what I found: Product: Nila VisionMax 55 inch 4K Smart TV; Model: NTV-55U; Price: Rs. 229,000; Warranty plan: Silver Care; Available at: Colombo 03, Kandy, Galle. [4] Product: Nila VisionMax 43 inch Full HD Smart TV; Model: NTV-43F; Price: Rs. 129,500; Warranty plan: Basic Care; Available at: All branches. [4] Nila VisionMax 55 inch 4K Smart TV [3]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
           "answer_correct": false,
-          "latency_s": 3.77,
+          "latency_s": 0.57,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0000",
-            "bd2e38b6135c-0004",
-            "3e984c0fbfd7-0001",
-            "b9fb871d04ff-0001",
-            "bd2e38b6135c-0001",
-            "bd2e38b6135c-0003"
+            "17f9228198c5-0007",
+            "aa46d9d60c54-0000",
+            "17f9228198c5-0006",
+            "98c5cbe973fc-0004",
+            "98c5cbe973fc-0005",
+            "98c5cbe973fc-0002"
           ]
         },
         {
           "id": "m03",
           "type": "multi-hop",
           "question": "Is the motor of the WashPro 8kg washer covered for 10 years?",
-          "answer": "Here's what I found: Product: Nila WashPro 8kg Front Load Washer; Model: NWM-8F; Price: Rs. 139,900; Warranty plan: Gold Care; Available at: All branches. [3] 15% off the Nila WashPro 8kg Front Load Washer during the Year-End Sale. [2] Gold Care covers parts and labour for 3 years, with a 10 year warranty on the inverter compressor of air conditioners and on the motor of washing machines. [1]",
+          "answer": "Here's what I found: Product: Nila WashPro 8kg Front Load Washer; Model: NWM-8F; Price: Rs. 139,900; Warranty plan: Gold Care; Available at: All branches. [4] 15% off the Nila WashPro 8kg Front Load Washer during the Year-End Sale. [3] Nila WashPro 8kg Front Load Washer [1]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
-          "answer_correct": true,
-          "latency_s": 3.67,
+          "answer_correct": false,
+          "latency_s": 0.62,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0001",
-            "b9fb871d04ff-0001",
-            "bd2e38b6135c-0003",
-            "3e984c0fbfd7-0000",
-            "bd2e38b6135c-0001",
-            "bd2e38b6135c-0004"
+            "17f9228198c5-0004",
+            "aa46d9d60c54-0001",
+            "ed6eb7559762-0001",
+            "98c5cbe973fc-0003",
+            "17f9228198c5-0005",
+            "aa46d9d60c54-0000"
           ]
         },
         {
@@ -1747,37 +1748,37 @@
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
           "answer_correct": false,
-          "latency_s": 3.61,
+          "latency_s": 0.62,
           "judge": null,
           "retrieved": [
-            "bd2e38b6135c-0005",
-            "bd2e38b6135c-0006",
-            "3e984c0fbfd7-0002",
-            "1fe81fa56402-0001",
-            "bd2e38b6135c-0004",
-            "3e984c0fbfd7-0000"
+            "17f9228198c5-0009",
+            "98c5cbe973fc-0005",
+            "aa46d9d60c54-0000",
+            "928e7bbc7427-0000",
+            "dec0632ecb0c-0005",
+            "dec0632ecb0c-0000"
           ]
         },
         {
           "id": "m05",
           "type": "multi-hop",
           "question": "Which branches with a service centre are open on Sundays?",
-          "answer": "Here's what I found: Opening hours are Monday to Saturday 9.00 AM - 8.00 PM and Sunday 10.00 AM - 6.00 PM. [2] Opening hours are Monday to Saturday 9.30 AM - 6.30 PM and Sunday 10.00 AM - 2.00 PM. [1] Opening hours are Monday to Friday 9.00 AM - 6.00 PM and Saturday 9.00 AM - 1.00 PM. [3]",
+          "answer": "Here's what I found: Opening hours are Monday to Saturday 9.00 AM - 8.00 PM and Sunday 10.00 AM - 6.00 PM. [2] Opening hours are Monday to Saturday 9.30 AM - 6.30 PM and Sunday 10.00 AM - 2.00 PM. [1] Opening hours are Monday to Friday 9.00 AM - 6.00 PM and Saturday 9.00 AM - 1.00 PM. [4]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 1.0,
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
           "answer_correct": false,
-          "latency_s": 3.77,
+          "latency_s": 0.61,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0004",
-            "d8a6eb1ed89d-0002",
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0003",
-            "3e984c0fbfd7-0002",
-            "d8a6eb1ed89d-0006"
+            "dec0632ecb0c-0004",
+            "dec0632ecb0c-0002",
+            "dec0632ecb0c-0003",
+            "dec0632ecb0c-0005",
+            "aa46d9d60c54-0002",
+            "a499db76c50e-0000"
           ]
         },
         {
@@ -1791,147 +1792,147 @@
           "full_context_hit": true,
           "context_precision": 0.16666666666666666,
           "answer_correct": false,
-          "latency_s": 3.44,
+          "latency_s": 0.59,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0004",
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0002",
-            "d8a6eb1ed89d-0003",
-            "d8a6eb1ed89d-0001",
-            "d8a6eb1ed89d-0006"
+            "dec0632ecb0c-0004",
+            "dec0632ecb0c-0005",
+            "dec0632ecb0c-0002",
+            "dec0632ecb0c-0003",
+            "aa46d9d60c54-0002",
+            "98c5cbe973fc-0006"
           ]
         },
         {
           "id": "m07",
           "type": "multi-hop",
           "question": "Can I pay for the Nila AirCool 12000 Inverter AC in 0% instalments?",
-          "answer": "Here's what I found: Product: Nila AirCool 12000 Inverter AC; Model: NAC-12I; Price: Rs. 189,900; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [1] Product: Nila AirCool 18000 Inverter AC; Model: NAC-18I; Price: Rs. 264,500; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [1] A free Nila BreezeLine 16 inch Pedestal Fan with every Nila AirCool air conditioner purchased during the sale. [2]",
-          "answerable": true,
-          "unanswerable": false,
-          "context_recall": 1.0,
-          "full_context_hit": true,
-          "context_precision": 0.3333333333333333,
-          "answer_correct": false,
-          "latency_s": 3.83,
-          "judge": null,
-          "retrieved": [
-            "bd2e38b6135c-0001",
-            "b9fb871d04ff-0001",
-            "bd2e38b6135c-0005",
-            "1fe81fa56402-0000",
-            "3e984c0fbfd7-0005",
-            "3e984c0fbfd7-0000"
-          ]
-        },
-        {
-          "id": "m08",
-          "type": "multi-hop",
-          "question": "Is delivery free if I order only a RiceMaster rice cooker to Colombo?",
-          "answer": "Here's what I found: Delivery is free within the Colombo and Gampaha districts for orders above Rs. 50,000. [1] Product: Nila RiceMaster 1.8L Rice Cooker; Model: NRC-18; Price: Rs. 12,900; Warranty plan: Basic Care; Available at: All branches. [2] Same-day delivery is available in Colombo city for orders placed before 12 noon, for an extra Rs. 1,500. [1]",
-          "answerable": true,
-          "unanswerable": false,
-          "context_recall": 1.0,
-          "full_context_hit": true,
-          "context_precision": 0.3333333333333333,
-          "answer_correct": true,
-          "latency_s": 3.78,
-          "judge": null,
-          "retrieved": [
-            "3e984c0fbfd7-0004",
-            "bd2e38b6135c-0005",
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0000",
-            "3e984c0fbfd7-0000",
-            "bd2e38b6135c-0004"
-          ]
-        },
-        {
-          "id": "m09",
-          "type": "multi-hop",
-          "question": "What is the price of the WashPro 8kg washer during the Year-End Sale?",
-          "answer": "Here's what I found: 15% off the Nila WashPro 8kg Front Load Washer during the Year-End Sale. [1] Product: Nila WashPro 8kg Front Load Washer; Model: NWM-8F; Price: Rs. 139,900; Warranty plan: Gold Care; Available at: All branches. [2] Product: Nila EasyWash 7kg Top Load Washer; Model: NWM-7T; Price: Rs. 86,750; Warranty plan: Silver Care; Available at: All branches. [2]",
-          "answerable": true,
-          "unanswerable": false,
-          "context_recall": 1.0,
-          "full_context_hit": true,
-          "context_precision": 0.3333333333333333,
-          "answer_correct": true,
-          "latency_s": 3.67,
-          "judge": null,
-          "retrieved": [
-            "b9fb871d04ff-0001",
-            "bd2e38b6135c-0003",
-            "b9fb871d04ff-0000",
-            "1fe81fa56402-0001",
-            "3e984c0fbfd7-0000",
-            "3e984c0fbfd7-0001"
-          ]
-        },
-        {
-          "id": "m10",
-          "type": "multi-hop",
-          "question": "Can I see the AirCool 18000 at the Kurunegala branch?",
-          "answer": "Here's what I found: Product: Nila AirCool 18000 Inverter AC; Model: NAC-18I; Price: Rs. 264,500; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [2] The Kurunegala Branch is at 88 Colombo Road, Kurunegala. [1] Product: Nila AirCool 12000 Inverter AC; Model: NAC-12I; Price: Rs. 189,900; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [2]",
-          "answerable": true,
-          "unanswerable": false,
-          "context_recall": 1.0,
-          "full_context_hit": true,
-          "context_precision": 0.16666666666666666,
-          "answer_correct": false,
-          "latency_s": 3.64,
-          "judge": null,
-          "retrieved": [
-            "d8a6eb1ed89d-0005",
-            "bd2e38b6135c-0001",
-            "3e984c0fbfd7-0002",
-            "d8a6eb1ed89d-0002",
-            "1fe81fa56402-0000",
-            "1fe81fa56402-0001"
-          ]
-        },
-        {
-          "id": "m11",
-          "type": "multi-hop",
-          "question": "If I hand in a faulty TV at the Kandy branch, how long will the repair take?",
-          "answer": "Here's what I found: The Kandy Branch is at 45 Dalada Veediya, Kandy. [3] Products handed in at the Kandy or Kurunegala branches are sent to the Colombo 03 service centre, and repairs then take 7 to 10 working days. [1] The Kandy Branch is closed on Sundays and public holidays. [3]",
-          "answerable": true,
-          "unanswerable": false,
-          "context_recall": 1.0,
-          "full_context_hit": true,
-          "context_precision": 0.16666666666666666,
-          "answer_correct": true,
-          "latency_s": 3.72,
-          "judge": null,
-          "retrieved": [
-            "3e984c0fbfd7-0002",
-            "3e984c0fbfd7-0003",
-            "d8a6eb1ed89d-0003",
-            "bd2e38b6135c-0004",
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0002"
-          ]
-        },
-        {
-          "id": "m12",
-          "type": "multi-hop",
-          "question": "What free gift do I get if I buy a Nila AirCool during the sale, and how much is that gift normally?",
-          "answer": "Here's what I found: Product: Nila AirCool 18000 Inverter AC; Model: NAC-18I; Price: Rs. 264,500; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [3] A free Nila BreezeLine 16 inch Pedestal Fan with every Nila AirCool air conditioner purchased during the sale. [1] Product: Nila AirCool 12000 Inverter AC; Model: NAC-12I; Price: Rs. 189,900; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [3]",
+          "answer": "Here's what I found: Product: Nila AirCool 12000 Inverter AC; Model: NAC-12I; Price: Rs. 189,900; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [1] Nila AirCool 12000 Inverter AC [2] Product: Nila AirCool 18000 Inverter AC; Model: NAC-18I; Price: Rs. 264,500; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [1]",
           "answerable": true,
           "unanswerable": false,
           "context_recall": 0.5,
           "full_context_hit": false,
           "context_precision": 0.16666666666666666,
           "answer_correct": false,
-          "latency_s": 4.23,
+          "latency_s": 0.67,
           "judge": null,
           "retrieved": [
-            "b9fb871d04ff-0001",
-            "1fe81fa56402-0001",
-            "bd2e38b6135c-0001",
-            "1fe81fa56402-0000",
-            "3e984c0fbfd7-0000",
-            "bd2e38b6135c-0003"
+            "98c5cbe973fc-0001",
+            "17f9228198c5-0000",
+            "17f9228198c5-0001",
+            "ed6eb7559762-0001",
+            "928e7bbc7427-0000",
+            "98c5cbe973fc-0005"
+          ]
+        },
+        {
+          "id": "m08",
+          "type": "multi-hop",
+          "question": "Is delivery free if I order only a RiceMaster rice cooker to Colombo?",
+          "answer": "Here's what I found: Delivery is free within the Colombo and Gampaha districts for orders above Rs. 50,000. [1] Product: Nila RiceMaster 1.8L Rice Cooker; Model: NRC-18; Price: Rs. 12,900; Warranty plan: Basic Care; Available at: All branches. [3] Same-day delivery is available in Colombo city for orders placed before 12 noon, for an extra Rs. 1,500. [1]",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 0.65,
+          "judge": null,
+          "retrieved": [
+            "aa46d9d60c54-0004",
+            "17f9228198c5-0009",
+            "98c5cbe973fc-0005",
+            "98c5cbe973fc-0004",
+            "dec0632ecb0c-0002",
+            "928e7bbc7427-0000"
+          ]
+        },
+        {
+          "id": "m09",
+          "type": "multi-hop",
+          "question": "What is the price of the WashPro 8kg washer during the Year-End Sale?",
+          "answer": "Here's what I found: 15% off the Nila WashPro 8kg Front Load Washer during the Year-End Sale. [1] Product: Nila WashPro 8kg Front Load Washer; Model: NWM-8F; Price: Rs. 139,900; Warranty plan: Gold Care; Available at: All branches. [2] Nila WashPro 8kg Front Load Washer [3]",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": true,
+          "latency_s": 0.62,
+          "judge": null,
+          "retrieved": [
+            "ed6eb7559762-0001",
+            "98c5cbe973fc-0003",
+            "17f9228198c5-0004",
+            "17f9228198c5-0005",
+            "98c5cbe973fc-0001",
+            "98c5cbe973fc-0002"
+          ]
+        },
+        {
+          "id": "m10",
+          "type": "multi-hop",
+          "question": "Can I see the AirCool 18000 at the Kurunegala branch?",
+          "answer": "Here's what I found: Product: Nila AirCool 18000 Inverter AC; Model: NAC-18I; Price: Rs. 264,500; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [3] The Kurunegala Branch is at 88 Colombo Road, Kurunegala. [1] Kurunegala Branch [1]",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": false,
+          "latency_s": 0.63,
+          "judge": null,
+          "retrieved": [
+            "dec0632ecb0c-0005",
+            "17f9228198c5-0001",
+            "98c5cbe973fc-0001",
+            "aa46d9d60c54-0002",
+            "dec0632ecb0c-0002",
+            "928e7bbc7427-0000"
+          ]
+        },
+        {
+          "id": "m11",
+          "type": "multi-hop",
+          "question": "If I hand in a faulty TV at the Kandy branch, how long will the repair take?",
+          "answer": "Here's what I found: The Kandy Branch is at 45 Dalada Veediya, Kandy. [2] Products handed in at the Kandy or Kurunegala branches are sent to the Colombo 03 service centre, and repairs then take 7 to 10 working days. [1] The Kandy Branch is closed on Sundays and public holidays. [2]",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": true,
+          "latency_s": 0.7,
+          "judge": null,
+          "retrieved": [
+            "aa46d9d60c54-0002",
+            "dec0632ecb0c-0003",
+            "aa46d9d60c54-0003",
+            "dec0632ecb0c-0005",
+            "dec0632ecb0c-0002",
+            "dec0632ecb0c-0004"
+          ]
+        },
+        {
+          "id": "m12",
+          "type": "multi-hop",
+          "question": "What free gift do I get if I buy a Nila AirCool during the sale, and how much is that gift normally?",
+          "answer": "Here's what I found: Product: Nila AirCool 18000 Inverter AC; Model: NAC-18I; Price: Rs. 264,500; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [2] A free Nila BreezeLine 16 inch Pedestal Fan with every Nila AirCool air conditioner purchased during the sale. [1] Product: Nila AirCool 12000 Inverter AC; Model: NAC-12I; Price: Rs. 189,900; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [2]",
+          "answerable": true,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.3333333333333333,
+          "answer_correct": false,
+          "latency_s": 0.66,
+          "judge": null,
+          "retrieved": [
+            "ed6eb7559762-0001",
+            "98c5cbe973fc-0001",
+            "17f9228198c5-0001",
+            "17f9228198c5-0000",
+            "98c5cbe973fc-0005",
+            "aa46d9d60c54-0000"
           ]
         },
         {
@@ -1945,59 +1946,59 @@
           "full_context_hit": true,
           "context_precision": 0.3333333333333333,
           "answer_correct": true,
-          "latency_s": 4.22,
+          "latency_s": 0.23,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0001",
-            "3e984c0fbfd7-0002",
-            "d8a6eb1ed89d-0004",
-            "d8a6eb1ed89d-0002",
-            "d8a6eb1ed89d-0000",
-            "d8a6eb1ed89d-0005"
+            "dec0632ecb0c-0001",
+            "aa46d9d60c54-0002",
+            "a499db76c50e-0001",
+            "a499db76c50e-0000",
+            "dec0632ecb0c-0004",
+            "dec0632ecb0c-0002"
           ]
         },
         {
-          "id": "u01",
-          "type": "unanswerable",
+          "id": "s13",
+          "type": "single-hop",
           "question": "Do you sell iPhones?",
           "answer": "Sorry, I don't have that information in our documents. Would you like me to connect you with a team member? Reply *human* and someone will get back to you.",
           "answerable": false,
-          "unanswerable": true,
-          "context_recall": null,
-          "full_context_hit": null,
-          "context_precision": null,
-          "answer_correct": true,
-          "latency_s": 3.75,
+          "unanswerable": false,
+          "context_recall": 1.0,
+          "full_context_hit": true,
+          "context_precision": 0.16666666666666666,
+          "answer_correct": false,
+          "latency_s": 0.71,
           "judge": null,
           "retrieved": [
-            "1fe81fa56402-0000",
-            "d8a6eb1ed89d-0000",
-            "b9fb871d04ff-0000",
-            "1fe81fa56402-0001",
-            "b9fb871d04ff-0002",
-            "b9fb871d04ff-0001"
+            "928e7bbc7427-0000",
+            "dec0632ecb0c-0000",
+            "ed6eb7559762-0002",
+            "928e7bbc7427-0001",
+            "ed6eb7559762-0000",
+            "a499db76c50e-0000"
           ]
         },
         {
           "id": "u02",
           "type": "unanswerable",
           "question": "What is the warranty on the Nila SmartWatch?",
-          "answer": "Here's what I found: Product: Nila VisionMax 55 inch 4K Smart TV; Model: NTV-55U; Price: Rs. 229,000; Warranty plan: Silver Care; Available at: Colombo 03, Kandy, Galle. [2] Product: Nila VisionMax 43 inch Full HD Smart TV; Model: NTV-43F; Price: Rs. 129,500; Warranty plan: Basic Care; Available at: All branches. [2] Every Nila product comes with one of three warranty plans: Basic Care, Silver Care or Gold Care. [1]",
+          "answer": "Here's what I found: Product: Nila VisionMax 55 inch 4K Smart TV; Model: NTV-55U; Price: Rs. 229,000; Warranty plan: Silver Care; Available at: Colombo 03, Kandy, Galle. [1] Product: Nila VisionMax 43 inch Full HD Smart TV; Model: NTV-43F; Price: Rs. 129,500; Warranty plan: Basic Care; Available at: All branches. [1] Product: Nila AirCool 18000 Inverter AC; Model: NAC-18I; Price: Rs. 264,500; Warranty plan: Gold Care; Available at: Colombo 03, Kandy, Galle. [3]",
           "answerable": true,
           "unanswerable": true,
           "context_recall": null,
           "full_context_hit": null,
           "context_precision": null,
           "answer_correct": false,
-          "latency_s": 3.76,
+          "latency_s": 0.58,
           "judge": null,
           "retrieved": [
-            "3e984c0fbfd7-0000",
-            "bd2e38b6135c-0004",
-            "1fe81fa56402-0000",
-            "bd2e38b6135c-0001",
-            "bd2e38b6135c-0005",
-            "bd2e38b6135c-0003"
+            "98c5cbe973fc-0004",
+            "aa46d9d60c54-0000",
+            "98c5cbe973fc-0001",
+            "98c5cbe973fc-0005",
+            "928e7bbc7427-0000",
+            "98c5cbe973fc-0002"
           ]
         },
         {
@@ -2011,15 +2012,15 @@
           "full_context_hit": null,
           "context_precision": null,
           "answer_correct": true,
-          "latency_s": 3.4,
+          "latency_s": 0.53,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0001",
-            "1fe81fa56402-0001",
-            "d8a6eb1ed89d-0000",
-            "3e984c0fbfd7-0004",
-            "bd2e38b6135c-0002",
-            "bd2e38b6135c-0005"
+            "dec0632ecb0c-0001",
+            "928e7bbc7427-0001",
+            "aa46d9d60c54-0000",
+            "80cbb5d6b01a-0004",
+            "a499db76c50e-0000",
+            "a499db76c50e-0001"
           ]
         },
         {
@@ -2033,15 +2034,15 @@
           "full_context_hit": null,
           "context_precision": null,
           "answer_correct": true,
-          "latency_s": 3.38,
+          "latency_s": 0.62,
           "judge": null,
           "retrieved": [
-            "b9fb871d04ff-0002",
-            "1fe81fa56402-0001",
-            "3e984c0fbfd7-0004",
-            "bd2e38b6135c-0003",
-            "1fe81fa56402-0000",
-            "d8a6eb1ed89d-0006"
+            "928e7bbc7427-0001",
+            "928e7bbc7427-0000",
+            "98c5cbe973fc-0000",
+            "dec0632ecb0c-0006",
+            "aa46d9d60c54-0001",
+            "dec0632ecb0c-0000"
           ]
         },
         {
@@ -2055,15 +2056,15 @@
           "full_context_hit": null,
           "context_precision": null,
           "answer_correct": false,
-          "latency_s": 3.4,
+          "latency_s": 0.63,
           "judge": null,
           "retrieved": [
-            "d8a6eb1ed89d-0005",
-            "d8a6eb1ed89d-0003",
-            "d8a6eb1ed89d-0002",
-            "d8a6eb1ed89d-0004",
-            "b9fb871d04ff-0000",
-            "d8a6eb1ed89d-0006"
+            "dec0632ecb0c-0005",
+            "dec0632ecb0c-0003",
+            "dec0632ecb0c-0002",
+            "dec0632ecb0c-0004",
+            "aa46d9d60c54-0002",
+            "ed6eb7559762-0000"
           ]
         }
       ]
