@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+data/
+data_smoke/
+eval/.data/
+__pycache__/
+*.pyc
+.pytest_cache/
+node_modules/
+dashboard/dist/
+.venv/
+*.log
+.vercel
+eval/.last_run.log
