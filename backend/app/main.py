@@ -397,6 +397,32 @@ async def meta_webhook(request: Request, background: BackgroundTasks, x_hub_sign
     return {"ok": True}
 
 
+# --- Privacy policy (required to publish a Meta app) -------------------------
+
+PRIVACY_HTML = """<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Privacy Policy</title>
+<style>body{{font-family:system-ui,sans-serif;max-width:720px;margin:40px auto;padding:0 16px;line-height:1.6;color:#1b1f24}}</style>
+</head><body><h1>Privacy Policy</h1>
+<p>This is a portfolio demo of a WhatsApp customer-support chatbot for {company}, a fictional company.</p>
+<h2>What we collect</h2><p>When you message the bot on WhatsApp we receive your phone number, your WhatsApp profile name
+and the text of your messages. We store the conversation so the bot can remember context and so the
+operator can review unanswered questions.</p>
+<h2>How we use it</h2><p>Messages are used only to answer your questions. To write an answer, the text of your question and
+excerpts from the company's documents are sent to an AI model provider (Google Gemini or Anthropic Claude).
+We do not sell or share your data for advertising.</p>
+<h2>Retention and deletion</h2><p>The demo runs on a free server that erases stored conversations when it restarts. You can ask for your
+data to be deleted at any time by sending the message <b>reset</b> to the bot, which deletes your conversation history{contact}.</p>
+</body></html>"""
+
+
+@app.get("/privacy", include_in_schema=False)
+@app.get("/data-deletion", include_in_schema=False)
+def privacy():
+    s = get_settings()
+    contact = f", or by emailing the operator at {s.contact_email}" if s.contact_email else ""
+    return Response(PRIVACY_HTML.format(company=s.company_name, contact=contact), media_type="text/html")
+
+
 # --- Dashboard (built React app) ---------------------------------------------
 
 if DASHBOARD_DIST.exists():

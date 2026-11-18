@@ -17,6 +17,7 @@ class Settings(BaseSettings):
 
     # General
     company_name: str = "Nilaveli Electronics"
+    contact_email: str = ""  # optional, shown on the /privacy page
     data_dir: Path = ROOT_DIR / "data"
     admin_api_key: str = "change-me"
     cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173"
@@ -60,7 +61,7 @@ class Settings(BaseSettings):
     meta_app_secret: str = ""
     meta_access_token: str = ""
     meta_phone_number_id: str = ""
-    meta_graph_version: str = "v21.0"
+    meta_graph_version: str = "v25.0"
     rate_limit_per_minute: int = 12
 
     @property
